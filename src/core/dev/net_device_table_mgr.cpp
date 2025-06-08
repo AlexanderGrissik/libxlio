@@ -220,7 +220,7 @@ void net_device_table_mgr::update_tbl()
                 /* Add new interfaces */
                 switch (nl_msgdata->ifi_type) {
                 case ARPHRD_ETHER:
-                    p_net_device_val = new net_device_val_eth(&desc);
+                    p_net_device_val = new net_device_val(&desc);
                     break;
                 default:
                     goto next;
