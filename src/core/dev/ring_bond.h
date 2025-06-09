@@ -38,6 +38,7 @@ public:
     virtual void adapt_cq_moderation();
     virtual bool reclaim_recv_buffers(descq_t *rx_reuse);
     virtual bool reclaim_recv_buffers(mem_buf_desc_t *rx_reuse_lst);
+    virtual bool reclaim_recv_buffers_no_lock(mem_buf_desc_t *) { return false; }
     virtual void mem_buf_rx_release(mem_buf_desc_t *p_mem_buf_desc);
     virtual int drain_and_proccess();
     virtual void wait_for_notification_and_process_element(uint64_t *p_cq_poll_sn,
@@ -85,6 +86,90 @@ public:
         m_xmit_rings[id]->reset_inflight_zc_buffers_ctx(id, ctx);
     }
     virtual uint64_t get_rx_cq_out_of_buffer_drop();
+
+#ifdef DEFINED_UTLS
+    virtual bool tls_tx_supported(void) { return false; }
+    virtual bool tls_rx_supported(void) { return false; }
+    virtual xlio_tis *tls_context_setup_tx(const xlio_tls_info *info)
+    {
+        NOT_IN_USE(info);
+        return NULL;
+    }
+    virtual xlio_tir *tls_create_tir(bool cached)
+    {
+        NOT_IN_USE(cached);
+        return NULL;
+    }
+    virtual int tls_context_setup_rx(xlio_tir *tir, const xlio_tls_info *info,
+                                     uint32_t next_record_tcp_sn, xlio_comp_cb_t callback,
+                                     void *callback_arg)
+    {
+        NOT_IN_USE(tir);
+        NOT_IN_USE(info);
+        NOT_IN_USE(next_record_tcp_sn);
+        NOT_IN_USE(callback);
+        NOT_IN_USE(callback_arg);
+        return -1;
+    }
+    virtual rfs_rule *tls_rx_create_rule(const flow_tuple &flow_spec_5t, xlio_tir *tir)
+    {
+        NOT_IN_USE(flow_spec_5t);
+        NOT_IN_USE(tir);
+        return NULL;
+    }
+    virtual void tls_context_resync_tx(const xlio_tls_info *info, xlio_tis *tis, bool skip_static)
+    {
+        NOT_IN_USE(info);
+        NOT_IN_USE(tis);
+        NOT_IN_USE(skip_static);
+    }
+    virtual void tls_resync_rx(xlio_tir *tir, const xlio_tls_info *info, uint32_t hw_resync_tcp_sn)
+    {
+        NOT_IN_USE(tir);
+        NOT_IN_USE(info);
+        NOT_IN_USE(hw_resync_tcp_sn);
+    }
+    virtual void tls_get_progress_params_rx(xlio_tir *tir, void *buf, uint32_t lkey)
+    {
+        NOT_IN_USE(tir);
+        NOT_IN_USE(buf);
+        NOT_IN_USE(lkey);
+    }
+    virtual void tls_release_tis(xlio_tis *tis) { NOT_IN_USE(tis); }
+    virtual void tls_release_tir(xlio_tir *tir) { NOT_IN_USE(tir); }
+    virtual void tls_tx_post_dump_wqe(xlio_tis *tis, void *addr, uint32_t len, uint32_t lkey,
+                                      bool first)
+    {
+        NOT_IN_USE(tis);
+        NOT_IN_USE(addr);
+        NOT_IN_USE(len);
+        NOT_IN_USE(lkey);
+        NOT_IN_USE(first);
+    }
+#endif /* DEFINED_UTLS */
+    virtual std::unique_ptr<xlio_tis> create_tis(uint32_t flag) const
+    {
+        NOT_IN_USE(flag);
+        return nullptr;
+    }
+
+    virtual void post_nop_fence(void) {}
+    virtual void post_dump_wqe(xlio_tis *tis, void *addr, uint32_t len, uint32_t lkey, bool first)
+    {
+        NOT_IN_USE(tis);
+        NOT_IN_USE(addr);
+        NOT_IN_USE(len);
+        NOT_IN_USE(lkey);
+        NOT_IN_USE(first);
+    }
+
+    // TODO Add id argument for bonding
+    virtual bool credits_get(unsigned credits)
+    {
+        NOT_IN_USE(credits);
+        return false;
+    }
+    virtual void credits_return(unsigned credits) { NOT_IN_USE(credits); }
 
 protected:
     void update_cap(ring_simple *slave = nullptr);

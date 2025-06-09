@@ -325,10 +325,6 @@ public:
         m_p_ib_ctx->convert_hw_time_to_system_time(hwtime, systime);
     }
     int modify_ratelimit(struct xlio_rate_limit_t &rate_limit) override;
-    int get_tx_channel_fd() const override
-    {
-        return m_p_tx_comp_event_channel ? m_p_tx_comp_event_channel->fd : -1;
-    }
     uint32_t get_tx_user_lkey(void *addr, size_t length) override;
     uint32_t get_max_inline_data() override;
     ib_ctx_handler *get_ctx(ring_user_id_t id) override
@@ -344,8 +340,12 @@ public:
         NOT_IN_USE(id);
         return m_tx_lkey;
     }
+    int *get_rx_channel_fds(size_t &length) const override
+    {
+        length = 1;
+        return m_p_n_rx_channel_fds;
+    }
     bool is_tso(void) override;
-
     bool rx_process_buffer(mem_buf_desc_t *p_rx_wc_buf_desc, void *pv_fd_ready_array);
     bool attach_flow(flow_tuple &flow_spec_5t, sockinfo *sink, bool force_5t = false) override;
     bool detach_flow(flow_tuple &flow_spec_5t, sockinfo *sink) override;
