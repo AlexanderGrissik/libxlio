@@ -8,10 +8,10 @@
 #define RING_BOND_H
 
 #include "ring.h"
-#include "ring_slave.h"
+#include "ring_simple.h"
 #include "dev/net_device_table_mgr.h"
 
-typedef std::vector<ring_slave *> ring_slave_vector_t;
+typedef std::vector<ring_simple *> ring_simple_vector_t;
 
 struct flow_sink_t {
     flow_tuple flow;
@@ -42,7 +42,6 @@ public:
     virtual int drain_and_proccess();
     virtual void wait_for_notification_and_process_element(uint64_t *p_cq_poll_sn,
                                                            void *pv_fd_ready_array = nullptr);
-    virtual int get_num_resources() const { return m_bond_rings.size(); };
     virtual bool attach_flow(flow_tuple &flow_spec_5t, sockinfo *sink, bool force_5t = false);
     virtual bool detach_flow(flow_tuple &flow_spec_5t, sockinfo *sink);
     virtual void restart();
@@ -57,8 +56,8 @@ public:
                                  xlio_wr_tx_packet_attr attr, xlio_tis *tis);
     virtual void mem_buf_desc_return_single_to_owner_tx(mem_buf_desc_t *p_mem_buf_desc);
     virtual void mem_buf_desc_return_single_multi_ref(mem_buf_desc_t *p_mem_buf_desc, unsigned ref);
-    virtual bool is_member(ring_slave *rng);
-    virtual bool is_active_member(ring_slave *rng, ring_user_id_t id);
+    virtual bool is_member(ring *rng);
+    virtual bool is_active_member(ring *rng, ring_user_id_t id);
     virtual ring_user_id_t generate_id(const address_t src_mac, const address_t dst_mac,
                                        uint16_t eth_proto, uint16_t encap_proto,
                                        const ip_address &src_ip, const ip_address &dst_ip,
@@ -88,7 +87,7 @@ public:
     virtual uint64_t get_rx_cq_out_of_buffer_drop();
 
 protected:
-    void update_cap(ring_slave *slave = nullptr);
+    void update_cap(ring_simple *slave = nullptr);
     void update_rx_channel_fds();
 
     /* Fill m_xmit_rings array */
@@ -106,7 +105,7 @@ protected:
     /* Array of all aggregated rings
      * Every ring can be Active or Backup
      */
-    ring_slave_vector_t m_bond_rings;
+    ring_simple_vector_t m_bond_rings;
 
     /* Array of rings used for data transmission
      * Every element in this array points to ring that actually used to transfer data
@@ -118,12 +117,12 @@ protected:
      *   Sets an IEEE 802.3ad dynamic link aggregation policy to load balance the traffic
      *   in addition to providing failover.
      */
-    ring_slave_vector_t m_xmit_rings;
+    ring_simple_vector_t m_xmit_rings;
 
     /* Array of rings used for income data processing
      * - For RoCE LAG rings the only single is used with lag_tx_port_affinity=1
      */
-    ring_slave_vector_t m_recv_rings;
+    ring_simple_vector_t m_recv_rings;
 
     std::vector<struct flow_sink_t> m_rx_flows;
     uint32_t m_max_inline_data;

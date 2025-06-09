@@ -98,7 +98,7 @@ inline void rfs::prepare_filter_detach(int &filter_counter, bool decrease_counte
     BULLSEYE_EXCLUDE_BLOCK_END
 }
 
-rfs::rfs(flow_tuple *flow_spec_5t, ring_slave *p_ring, rfs_rule_filter *rule_filter /*= NULL*/,
+rfs::rfs(flow_tuple *flow_spec_5t, ring_simple *p_ring, rfs_rule_filter *rule_filter /*= NULL*/,
          uint32_t flow_tag_id /*=0*/)
     : m_flow_tuple(rule_filter ? rule_filter->m_flow_tuple : *flow_spec_5t)
     , m_p_ring(p_ring)

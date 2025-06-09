@@ -696,7 +696,7 @@ ssize_t dst_entry::pass_pkt_to_neigh(const iovec *p_iov, size_t sz_iov, uint32_t
     configure_ip_header(m_header_neigh, (uint16_t)(packet_id & 0xffff));
 
     // Real MAC addresses will be filled by neigh
-    const L2_address *dummy = m_p_net_dev_val->get_l2_address(); 
+    const L2_address *dummy = m_p_net_dev_val->get_l2_address();
     if (m_p_neigh_entry && dummy) {
         configure_eth_headers(m_header_neigh, *dummy, *dummy, m_p_net_dev_val->get_vlan());
 

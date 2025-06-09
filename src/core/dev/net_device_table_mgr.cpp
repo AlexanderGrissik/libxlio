@@ -571,7 +571,7 @@ void net_device_table_mgr::get_net_devices(local_dev_vector &vec)
 void net_device_table_mgr::del_link_event(const netlink_link_info *info)
 {
     ndtm_logdbg("netlink event: RTM_DELLINK if_index: %d", info->ifindex);
-
+    NOT_IN_USE(info);
     /* This flow is actual when interface is removed quickly
      * w/o moving it in DOWN state.
      * Usually interface is removed during sequence of RTM_NEWLINK events
@@ -583,7 +583,7 @@ void net_device_table_mgr::del_link_event(const netlink_link_info *info)
 void net_device_table_mgr::new_link_event(const netlink_link_info *info)
 {
     ndtm_logdbg("netlink event: RTM_NEWLINK if_index: %d", info->ifindex);
-
+    NOT_IN_USE(info);
     /* This flow is used to process interface UP and DOWN scenarios.
      * It is important that interface can be removed w/o putting it into
      * DOWN state (see RTM_DELLINK).

@@ -104,7 +104,6 @@ libxlio_la_SOURCES := \
 	dev/src_addr_selector.cpp \
 	dev/ring.cpp \
 	dev/ring_bond.cpp \
-	dev/ring_slave.cpp \
 	dev/ring_simple.cpp \
 	dev/ring_allocation_logic.cpp \
 	\
@@ -229,7 +228,6 @@ libxlio_la_SOURCES := \
 	dev/src_addr_selector.h \
 	dev/ring.h \
 	dev/ring_bond.h \
-	dev/ring_slave.h \
 	dev/ring_simple.h \
 	dev/ring_allocation_logic.h \
 	dev/wqe_send_handler.h \

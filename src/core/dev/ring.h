@@ -67,7 +67,6 @@ public:
     virtual int send_lwip_buffer(ring_user_id_t id, xlio_ibv_send_wr *p_send_wqe,
                                  xlio_wr_tx_packet_attr attr, xlio_tis *tis) = 0;
 
-    virtual int get_num_resources() const = 0;
     virtual int *get_rx_channel_fds(size_t &length) const
     {
         length = 1;
@@ -91,8 +90,8 @@ public:
                                                       unsigned ref) = 0;
 
     virtual void inc_tx_retransmissions_stats(ring_user_id_t id) = 0;
-    virtual bool is_member(ring_slave *rng) = 0;
-    virtual bool is_active_member(ring_slave *rng, ring_user_id_t id) = 0;
+    virtual bool is_member(ring *rng) = 0;
+    virtual bool is_active_member(ring *rng, ring_user_id_t id) = 0;
     ring *get_parent() { return m_parent; }
     ring_user_id_t generate_id() { return 0; }
     virtual ring_user_id_t generate_id(const address_t src_mac, const address_t dst_mac,

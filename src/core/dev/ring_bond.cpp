@@ -57,7 +57,7 @@ ring_bond::~ring_bond()
 
     m_rx_flows.clear();
 
-    ring_slave_vector_t::iterator iter = m_bond_rings.begin();
+    ring_simple_vector_t::iterator iter = m_bond_rings.begin();
     for (; iter != m_bond_rings.end(); iter++) {
         delete *iter;
     }
@@ -152,11 +152,11 @@ void ring_bond::restart()
             }
 
             /* For RoCE LAG device income data is processed by single ring only
-                * Consider using ring related slave with lag_tx_port_affinity = 1
-                * even if slave is not active.
-                * Always keep this ring active for RX
-                * but keep common logic for TX
-                */
+             * Consider using ring related slave with lag_tx_port_affinity = 1
+             * even if slave is not active.
+             * Always keep this ring active for RX
+             * but keep common logic for TX
+             */
             if (slaves[j]->active) {
                 ring_logdbg("ring %d active", i);
                 if (slaves[j]->lag_tx_port_affinity != 1) {
@@ -202,12 +202,11 @@ void ring_bond::restart()
             } else {
                 currently_active->m_cq_moderation_info.period =
                     safe_mce_sys().cq_moderation_period_usec;
-                currently_active->m_cq_moderation_info.count =
-                    safe_mce_sys().cq_moderation_count;
+                currently_active->m_cq_moderation_info.count = safe_mce_sys().cq_moderation_count;
             }
 
             currently_active->modify_cq_moderation(safe_mce_sys().cq_moderation_period_usec,
-                                                    safe_mce_sys().cq_moderation_count);
+                                                   safe_mce_sys().cq_moderation_count);
         }
     }
 
@@ -445,7 +444,7 @@ int ring_bond::request_notification(cq_type_t cq_type, uint64_t poll_sn)
 
     ring_lock.lock();
 
-    ring_slave_vector_t *bond_rings = (cq_type == CQT_RX ? &m_recv_rings : &m_xmit_rings);
+    ring_simple_vector_t *bond_rings = (cq_type == CQT_RX ? &m_recv_rings : &m_xmit_rings);
     for (uint32_t i = 0; i < (*bond_rings).size(); i++) {
         if ((*bond_rings)[i]->is_up()) {
             temp = (*bond_rings)[i]->request_notification(cq_type, poll_sn);
@@ -510,7 +509,7 @@ bool ring_bond::reclaim_recv_buffers(mem_buf_desc_t *)
     return false;
 }
 
-void ring_bond::update_cap(ring_slave *slave)
+void ring_bond::update_cap(ring_simple *slave)
 {
     if (!slave) {
         m_max_inline_data = (uint32_t)(-1);
@@ -557,7 +556,7 @@ int ring_bond::devide_buffers_helper(mem_buf_desc_t *p_mem_buf_desc_list,
 {
     mem_buf_desc_t *buffers_last[MAX_NUM_RING_RESOURCES];
     mem_buf_desc_t *head, *current, *temp;
-    ring_slave *last_owner;
+    ring_simple *last_owner;
     int count = 0;
     int ret = 0;
 
@@ -601,7 +600,7 @@ int ring_bond::devide_buffers_helper(mem_buf_desc_t *p_mem_buf_desc_list,
 
 void ring_bond::popup_xmit_rings()
 {
-    ring_slave *cur_slave = nullptr;
+    ring_simple *cur_slave = nullptr;
     size_t i, j;
 
     m_xmit_rings.clear();
@@ -678,12 +677,12 @@ void ring_bond::update_rx_channel_fds()
     }
 }
 
-bool ring_bond::is_active_member(ring_slave *rng, ring_user_id_t id)
+bool ring_bond::is_active_member(ring *rng, ring_user_id_t id)
 {
     return (m_xmit_rings[id] == rng);
 }
 
-bool ring_bond::is_member(ring_slave *rng)
+bool ring_bond::is_member(ring *rng)
 {
     for (uint32_t i = 0; i < m_bond_rings.size(); i++) {
         if (m_bond_rings[i]->is_member(rng)) {
@@ -796,7 +795,7 @@ uint64_t ring_bond::get_rx_cq_out_of_buffer_drop()
 
 void ring_bond::slave_create(int if_index)
 {
-    ring_slave *cur_slave;
+    ring_simple *cur_slave;
 
     cur_slave = new ring_simple(if_index, this, true);
     if (!cur_slave) {

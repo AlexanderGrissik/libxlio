@@ -27,7 +27,6 @@
 #include "proto/L2_address.h"
 #include "dev/ib_ctx_handler_collection.h"
 #include "dev/ring_simple.h"
-#include "dev/ring_slave.h"
 #include "dev/ring_bond.h"
 #include "sock/sock-redirect.h"
 #include "dev/net_device_table_mgr.h"
@@ -1284,8 +1283,7 @@ ring *net_device_val::create_ring(resource_allocation_key *key)
     try {
         switch (m_bond) {
         case NO_BOND:
-            ring = new ring_simple(get_if_idx(), nullptr,
-                                (key ? key->get_use_locks() : true));
+            ring = new ring_simple(get_if_idx(), nullptr, (key ? key->get_use_locks() : true));
             break;
         case ACTIVE_BACKUP:
         case LAG_8023ad:
