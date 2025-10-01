@@ -1,0 +1,51 @@
+\doxysection{xlio\+\_\+buf Struct Reference}
+\hypertarget{structxlio__buf}{}\label{structxlio__buf}\index{xlio\_buf@{xlio\_buf}}
+
+
+Buffer descriptor.  
+
+
+
+
+{\ttfamily \#include $<$ultrapai.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structxlio__buf_a6e5f79938ba988b704163c4bb8441006}\label{structxlio__buf_a6e5f79938ba988b704163c4bb8441006} 
+uint64\+\_\+t {\bfseries userdata}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Buffer descriptor. 
+
+Opaque structure representing a receive buffer in zero-\/copy RX operations. Buffers are provided via RX callbacks and must be returned to XLIO.
+
+\begin{DoxyParagraph}{Buffer Lifecycle\+:}
+
+\begin{DoxyEnumerate}
+\item Buffer provided to application via xlio\+\_\+socket\+\_\+rx\+\_\+cb\+\_\+t
+\item Application processes data and optionally uses userdata field
+\item Application returns buffer via \doxylink{group__xlio__rx_ga6a9b197dd9109326ed9d6a4d40aca350}{xlio\+\_\+socket\+\_\+buf\+\_\+free()} or \doxylink{group__xlio__rx_gaf323c63fd34349bb93583a3695cbc03a}{xlio\+\_\+poll\+\_\+group\+\_\+buf\+\_\+free()}
+\end{DoxyEnumerate}
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{User Data Field\+:}
+
+\begin{DoxyItemize}
+\item Available for application use during buffer ownership
+\item Can be used for reference counting, linking, or other purposes
+\item Not initialized by XLIO
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Structure Members\+:}
+
+\begin{DoxyItemize}
+\item uint64\+\_\+t userdata\+: User data field available during buffer ownership 
+\end{DoxyItemize}
+\end{DoxyParagraph}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ultrapai.\+h\end{DoxyCompactItemize}

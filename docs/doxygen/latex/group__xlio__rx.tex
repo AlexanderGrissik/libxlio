@@ -1,0 +1,74 @@
+\doxysubsection{Receive Operations}
+\hypertarget{group__xlio__rx}{}\label{group__xlio__rx}\index{Receive Operations@{Receive Operations}}
+
+
+Zero-\/copy receive buffer management.  
+
+
+\doxysubsubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structxlio__buf}{xlio\+\_\+buf}}
+\begin{DoxyCompactList}\small\item\em Buffer descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__xlio__rx_ga6a9b197dd9109326ed9d6a4d40aca350}{xlio\+\_\+socket\+\_\+buf\+\_\+free}} (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, struct \mbox{\hyperlink{structxlio__buf}{xlio\+\_\+buf}} \texorpdfstring{$\ast$}{*}buf)
+\begin{DoxyCompactList}\small\item\em Free a receive buffer (socket-\/specific) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__xlio__rx_gaf323c63fd34349bb93583a3695cbc03a}{xlio\+\_\+poll\+\_\+group\+\_\+buf\+\_\+free}} (\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}} group, struct \mbox{\hyperlink{structxlio__buf}{xlio\+\_\+buf}} \texorpdfstring{$\ast$}{*}buf)
+\begin{DoxyCompactList}\small\item\em Free a receive buffer (group-\/specific) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+Zero-\/copy receive buffer management. 
+
+The XLIO Ultra API provides zero-\/copy receive capabilities through a buffer management system. Received data is delivered via callbacks with buffer descriptors that must be returned to the system.
+
+\doxylink{structxlio__buf}{xlio\+\_\+buf} structure contains an uninitialized userdata field which can be used by the application to store any data during its ownership on the buffer. For example, the field can be used to organize a list without a container allocation, or to add a reference counter to the buffer.\hypertarget{group__xlio__rx_rx_data_alignment}{}\doxysubsubsection{\texorpdfstring{Data Alignment Considerations}{Data Alignment Considerations}}\label{group__xlio__rx_rx_data_alignment}
+XLIO Ultra API does not guarantee alignment for zero-\/copy RX data. The data alignment depends on the underlying network headers and packet structure. 
+
+\doxysubsubsection{Function Documentation}
+\Hypertarget{group__xlio__rx_gaf323c63fd34349bb93583a3695cbc03a}\label{group__xlio__rx_gaf323c63fd34349bb93583a3695cbc03a} 
+\index{Receive Operations@{Receive Operations}!xlio\_poll\_group\_buf\_free@{xlio\_poll\_group\_buf\_free}}
+\index{xlio\_poll\_group\_buf\_free@{xlio\_poll\_group\_buf\_free}!Receive Operations@{Receive Operations}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_poll\_group\_buf\_free()}{xlio\_poll\_group\_buf\_free()}}
+{\footnotesize\ttfamily void xlio\+\_\+poll\+\_\+group\+\_\+buf\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}}}]{group,  }\item[{struct \mbox{\hyperlink{structxlio__buf}{xlio\+\_\+buf}} \texorpdfstring{$\ast$}{*}}]{buf }\end{DoxyParamCaption})}
+
+
+
+Free a receive buffer (group-\/specific) 
+
+Returns a receive buffer to the system for reuse. This function allows to return a buffer outside of the original socket lifecycle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em group} & The polling group \\
+\hline
+{\em buf} & The buffer descriptor to free\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The buffer must not be accessed after calling this function. 
+\end{DoxyNote}
+\Hypertarget{group__xlio__rx_ga6a9b197dd9109326ed9d6a4d40aca350}\label{group__xlio__rx_ga6a9b197dd9109326ed9d6a4d40aca350} 
+\index{Receive Operations@{Receive Operations}!xlio\_socket\_buf\_free@{xlio\_socket\_buf\_free}}
+\index{xlio\_socket\_buf\_free@{xlio\_socket\_buf\_free}!Receive Operations@{Receive Operations}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_buf\_free()}{xlio\_socket\_buf\_free()}}
+{\footnotesize\ttfamily void xlio\+\_\+socket\+\_\+buf\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}]{sock,  }\item[{struct \mbox{\hyperlink{structxlio__buf}{xlio\+\_\+buf}} \texorpdfstring{$\ast$}{*}}]{buf }\end{DoxyParamCaption})}
+
+
+
+Free a receive buffer (socket-\/specific) 
+
+Returns a receive buffer to the system for reuse. This function should be called for every buffer received via the RX callback.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket that received the buffer \\
+\hline
+{\em buf} & The buffer descriptor to free\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The buffer must not be accessed after calling this function. 
+\end{DoxyNote}

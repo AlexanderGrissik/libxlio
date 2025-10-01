@@ -1,0 +1,107 @@
+\doxysubsection{Initialization and Cleanup}
+\hypertarget{group__xlio__init}{}\label{group__xlio__init}\index{Initialization and Cleanup@{Initialization and Cleanup}}
+
+
+Functions for initializing and cleaning up the XLIO Ultra API.  
+
+
+\doxysubsubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structxlio__init__attr}{xlio\+\_\+init\+\_\+attr}}
+\begin{DoxyCompactList}\small\item\em XLIO initialization attributes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__xlio__init_gaaad01a42c1616e08122aedc82680eb00}{xlio\+\_\+init\+\_\+ex}} (const struct \mbox{\hyperlink{structxlio__init__attr}{xlio\+\_\+init\+\_\+attr}} \texorpdfstring{$\ast$}{*}attr)
+\begin{DoxyCompactList}\small\item\em Initialize the XLIO Ultra API. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__xlio__init_gaa391fc15cc55d316609fa769aaad754b}{xlio\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize XLIO. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__xlio__init_ga036cf208f96e32c2fce415e8e7af1094}{xlio\+\_\+exit}} (void)
+\begin{DoxyCompactList}\small\item\em Finalize XLIO. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+Functions for initializing and cleaning up the XLIO Ultra API. 
+
+
+
+\doxysubsubsection{Function Documentation}
+\Hypertarget{group__xlio__init_ga036cf208f96e32c2fce415e8e7af1094}\label{group__xlio__init_ga036cf208f96e32c2fce415e8e7af1094} 
+\index{Initialization and Cleanup@{Initialization and Cleanup}!xlio\_exit@{xlio\_exit}}
+\index{xlio\_exit@{xlio\_exit}!Initialization and Cleanup@{Initialization and Cleanup}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_exit()}{xlio\_exit()}}
+{\footnotesize\ttfamily int xlio\+\_\+exit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Finalize XLIO. 
+
+Finalizes and cleans XLIO resources.
+
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error (errno is set) 
+\end{DoxyReturn}
+\Hypertarget{group__xlio__init_gaa391fc15cc55d316609fa769aaad754b}\label{group__xlio__init_gaa391fc15cc55d316609fa769aaad754b} 
+\index{Initialization and Cleanup@{Initialization and Cleanup}!xlio\_init@{xlio\_init}}
+\index{xlio\_init@{xlio\_init}!Initialization and Cleanup@{Initialization and Cleanup}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_init()}{xlio\_init()}}
+{\footnotesize\ttfamily int xlio\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize XLIO. 
+
+This function is similar to \doxylink{group__xlio__init_gaaad01a42c1616e08122aedc82680eb00}{xlio\+\_\+init\+\_\+ex()} but doesn\textquotesingle{}t accept additional attributes.
+
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error (errno is set)
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Error Codes\+:}
+
+\begin{DoxyItemize}
+\item EINVAL\+: Invalid parameters
+\item ENOMEM\+: Insufficient memory
+\item ENODEV\+: No compatible network devices found
+\item EEXIST\+: XLIO is already initialized
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group__xlio__init_ga036cf208f96e32c2fce415e8e7af1094}{xlio\+\_\+exit()} 
+\end{DoxySeeAlso}
+\Hypertarget{group__xlio__init_gaaad01a42c1616e08122aedc82680eb00}\label{group__xlio__init_gaaad01a42c1616e08122aedc82680eb00} 
+\index{Initialization and Cleanup@{Initialization and Cleanup}!xlio\_init\_ex@{xlio\_init\_ex}}
+\index{xlio\_init\_ex@{xlio\_init\_ex}!Initialization and Cleanup@{Initialization and Cleanup}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_init\_ex()}{xlio\_init\_ex()}}
+{\footnotesize\ttfamily int xlio\+\_\+init\+\_\+ex (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structxlio__init__attr}{xlio\+\_\+init\+\_\+attr}} \texorpdfstring{$\ast$}{*}}]{attr }\end{DoxyParamCaption})}
+
+
+
+Initialize the XLIO Ultra API. 
+
+This function must be called before using any other XLIO Ultra API functions. It\textquotesingle{}s a heavy operation that sets up the internal state, allocates resources, and configures the system for high-\/performance networking.
+
+\begin{DoxyNote}{Note}
+This function is not thread-\/safe. However, subsequent serialized calls will exit successfully without performing any action.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em attr} & Initialization attributes structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error (errno is set)
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Error Codes\+:}
+
+\begin{DoxyItemize}
+\item EINVAL\+: Invalid parameters
+\item ENOMEM\+: Insufficient memory
+\item ENODEV\+: No compatible network devices found
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group__xlio__init_ga036cf208f96e32c2fce415e8e7af1094}{xlio\+\_\+exit()} 
+
+\doxylink{structxlio__init__attr}{xlio\+\_\+init\+\_\+attr} 
+\end{DoxySeeAlso}

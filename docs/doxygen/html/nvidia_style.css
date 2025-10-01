@@ -1,0 +1,150 @@
+/* Simple NVIDIA Color Theme for Doxygen Documentation */
+
+/* NVIDIA Brand Colors */
+:root {
+    --nvidia-green: #76B900;
+    --nvidia-green-dark: #5A8A00;
+    --nvidia-green-very-dark: #4c7203;
+    --nvidia-green-light:  #e9f2d2;
+    --nvidia-green-menu: #bad581;
+    --nvidia-green-very-light: #B8E066;
+    --nvidia-green-pale-darker: #bddb86;
+    --nvidia-green-pale: #E8F5C8;
+    --nvidia-green-link-hover: #8fa94d;
+    --nvidia-white: #FFFFFF;
+    --nvidia-dark-text: #2D2D2D;
+}
+
+/* Simple color changes only */
+
+/* Header title background - make it light green like menu */
+.headertitle {
+    background-color: var(--nvidia-green-pale) !important;
+}
+
+/* Project name section background */
+#titlearea {
+    background-color: var(--nvidia-green-light) !important;
+}
+
+/* Project name - make it green */
+#projectname {
+    color: var(--nvidia-green-very-dark) !important;
+}
+
+/* More specific project name targeting */
+#titlearea #projectname {
+    font-size: 200% !important;
+}
+
+/* XLIO Ultra API link - make it brighter and add link indication */
+a.el {
+    color: var(--nvidia-green) !important;
+    text-decoration: underline !important;
+    font-weight: bold !important;
+}
+
+a.el:hover {
+    color: var(--nvidia-green-link-hover) !important;
+    text-decoration: underline !important;
+}
+
+/* General link hover - make text darker */
+a:hover {
+    color: var(--nvidia-green-link-hover) !important;
+}
+
+/* Headings - make them green */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--nvidia-green-very-dark) !important;
+}
+
+/* Title class - make it green */
+.title {
+    color: var(--nvidia-green-very-dark) !important;
+}
+
+/* Headertitle - increase font size for libxlio */
+.headertitle .title {
+    font-size: 160% !important;
+}
+
+/* API Reference heading - increase font size */
+.textblock h1 {
+    font-size: 130% !important;
+}
+
+/* Group headers - make them green */
+h1.groupheader, h2.groupheader {
+    color: var(--nvidia-green) !important;
+}
+
+/* Member names - make them green */
+.memname {
+    color: var(--nvidia-green) !important;
+}
+
+/* Parameter names - make them green */
+.paramname {
+    color: var(--nvidia-green) !important;
+}
+
+/* Return values - make them green */
+.returnvalue {
+    color: var(--nvidia-green) !important;
+}
+
+/* Navigation menu - make it green */
+#main-nav {
+    background-color: var(--nvidia-green) !important;
+}
+
+#main-nav a {
+    color: var(--nvidia-dark-text) !important;
+}
+
+#main-nav a:hover {
+    background-color: var(--nvidia-green-pale-darker) !important;
+    color: var(--nvidia-dark-text) !important;
+}
+
+/* Top navigation menu - make it green */
+.sm-dox {
+    background: var(--nvidia-green-menu) !important;
+    background-image: none !important;
+}
+
+/* Top navigation menu items - light green background */
+.sm-dox ul {
+    background-color: var(--nvidia-green-pale-darker) !important;
+}
+
+.sm-dox ul a {
+    background-color: var(--nvidia-green-pale-darker) !important;
+}
+
+/* Try targeting the menu container itself */
+#main-menu a:hover {
+    background-color: var(--nvidia-green-pale-darker) !important;
+    color: var(--nvidia-dark-text) !important;
+}
+
+#main-menu ul a:hover {
+    background-color: var(--nvidia-green-light) !important;
+    color: var(--nvidia-dark-text) !important;
+}
+
+.sm-dox a {
+    color: var(--nvidia-dark-text) !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    background-image: none !important;
+}
+
+.sm-dox a:hover {
+    background: var(--nvidia-green-pale-darker) !important;
+    background-image: none !important;
+    color: var(--nvidia-dark-text) !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}

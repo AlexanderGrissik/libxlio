@@ -1,0 +1,154 @@
+\begin{theindex}
+
+  \item {Event Callbacks}, \hyperpage{28}
+    \subitem {xlio\_memory\_cb\_t}, \hyperpage{29}
+    \subitem {xlio\_socket\_accept\_cb\_t}, \hyperpage{29}
+    \subitem {xlio\_socket\_comp\_cb\_t}, \hyperpage{30}
+    \subitem {xlio\_socket\_event\_cb\_t}, \hyperpage{30}
+    \subitem {XLIO\_SOCKET\_EVENT\_CLOSED}, \hyperpage{32}
+    \subitem {XLIO\_SOCKET\_EVENT\_ERROR}, \hyperpage{32}
+    \subitem {XLIO\_SOCKET\_EVENT\_ESTABLISHED}, \hyperpage{32}
+    \subitem {XLIO\_SOCKET\_EVENT\_TERMINATED}, \hyperpage{32}
+    \subitem {xlio\_socket\_rx\_cb\_t}, \hyperpage{31}
+
+  \indexspace
+
+  \item {Initialization and Cleanup}, \hyperpage{10}
+    \subitem {xlio\_exit}, \hyperpage{10}
+    \subitem {xlio\_init}, \hyperpage{10}
+    \subitem {xlio\_init\_ex}, \hyperpage{10}
+
+  \indexspace
+
+  \item {Polling Groups}, \hyperpage{11}
+    \subitem {XLIO\_GROUP\_FLAG\_DIRTY}, \hyperpage{12}
+    \subitem {XLIO\_GROUP\_FLAG\_SAFE}, \hyperpage{12}
+    \subitem {xlio\_poll\_group\_create}, \hyperpage{13}
+    \subitem {xlio\_poll\_group\_destroy}, \hyperpage{13}
+    \subitem {xlio\_poll\_group\_poll}, \hyperpage{14}
+    \subitem {xlio\_poll\_group\_t}, \hyperpage{13}
+    \subitem {xlio\_poll\_group\_update}, \hyperpage{14}
+
+  \indexspace
+
+  \item {Receive Operations}, \hyperpage{26}
+    \subitem {xlio\_poll\_group\_buf\_free}, \hyperpage{27}
+    \subitem {xlio\_socket\_buf\_free}, \hyperpage{27}
+
+  \indexspace
+
+  \item {Socket Management}, \hyperpage{15}
+    \subitem {xlio\_socket\_attach\_group}, \hyperpage{16}
+    \subitem {xlio\_socket\_bind}, \hyperpage{16}
+    \subitem {xlio\_socket\_connect}, \hyperpage{17}
+    \subitem {xlio\_socket\_create}, \hyperpage{18}
+    \subitem {xlio\_socket\_destroy}, \hyperpage{18}
+    \subitem {xlio\_socket\_detach\_group}, \hyperpage{19}
+    \subitem {xlio\_socket\_get\_pd}, \hyperpage{20}
+    \subitem {xlio\_socket\_getpeername}, \hyperpage{20}
+    \subitem {xlio\_socket\_getsockname}, \hyperpage{21}
+    \subitem {xlio\_socket\_listen}, \hyperpage{21}
+    \subitem {xlio\_socket\_setsockopt}, \hyperpage{22}
+    \subitem {xlio\_socket\_t}, \hyperpage{16}
+    \subitem {xlio\_socket\_update}, \hyperpage{22}
+
+  \indexspace
+
+  \item {Transmit Operations}, \hyperpage{23}
+    \subitem {xlio\_poll\_group\_flush}, \hyperpage{24}
+    \subitem {xlio\_socket\_flush}, \hyperpage{25}
+    \subitem {xlio\_socket\_send}, \hyperpage{25}
+    \subitem {XLIO\_SOCKET\_SEND\_FLAG\_FLUSH}, \hyperpage{24}
+    \subitem {XLIO\_SOCKET\_SEND\_FLAG\_INLINE}, \hyperpage{24}
+    \subitem {xlio\_socket\_sendv}, \hyperpage{26}
+
+  \indexspace
+
+  \item {XLIO Ultra API}, \hyperpage{7}
+  \item {xlio\_buf}, \hyperpage{33}
+  \item {xlio\_exit}
+    \subitem {Initialization and Cleanup}, \hyperpage{10}
+  \item {XLIO\_GROUP\_FLAG\_DIRTY}
+    \subitem {Polling Groups}, \hyperpage{12}
+  \item {XLIO\_GROUP\_FLAG\_SAFE}
+    \subitem {Polling Groups}, \hyperpage{12}
+  \item {xlio\_init}
+    \subitem {Initialization and Cleanup}, \hyperpage{10}
+  \item {xlio\_init\_attr}, \hyperpage{34}
+  \item {xlio\_init\_ex}
+    \subitem {Initialization and Cleanup}, \hyperpage{10}
+  \item {xlio\_memory\_cb\_t}
+    \subitem {Event Callbacks}, \hyperpage{29}
+  \item {xlio\_poll\_group\_attr}, \hyperpage{34}
+  \item {xlio\_poll\_group\_buf\_free}
+    \subitem {Receive Operations}, \hyperpage{27}
+  \item {xlio\_poll\_group\_create}
+    \subitem {Polling Groups}, \hyperpage{13}
+  \item {xlio\_poll\_group\_destroy}
+    \subitem {Polling Groups}, \hyperpage{13}
+  \item {xlio\_poll\_group\_flush}
+    \subitem {Transmit Operations}, \hyperpage{24}
+  \item {xlio\_poll\_group\_poll}
+    \subitem {Polling Groups}, \hyperpage{14}
+  \item {xlio\_poll\_group\_t}
+    \subitem {Polling Groups}, \hyperpage{13}
+  \item {xlio\_poll\_group\_update}
+    \subitem {Polling Groups}, \hyperpage{14}
+  \item {xlio\_socket\_accept\_cb\_t}
+    \subitem {Event Callbacks}, \hyperpage{29}
+  \item {xlio\_socket\_attach\_group}
+    \subitem {Socket Management}, \hyperpage{16}
+  \item {xlio\_socket\_attr}, \hyperpage{35}
+  \item {xlio\_socket\_bind}
+    \subitem {Socket Management}, \hyperpage{16}
+  \item {xlio\_socket\_buf\_free}
+    \subitem {Receive Operations}, \hyperpage{27}
+  \item {xlio\_socket\_comp\_cb\_t}
+    \subitem {Event Callbacks}, \hyperpage{30}
+  \item {xlio\_socket\_connect}
+    \subitem {Socket Management}, \hyperpage{17}
+  \item {xlio\_socket\_create}
+    \subitem {Socket Management}, \hyperpage{18}
+  \item {xlio\_socket\_destroy}
+    \subitem {Socket Management}, \hyperpage{18}
+  \item {xlio\_socket\_detach\_group}
+    \subitem {Socket Management}, \hyperpage{19}
+  \item {xlio\_socket\_event\_cb\_t}
+    \subitem {Event Callbacks}, \hyperpage{30}
+  \item {XLIO\_SOCKET\_EVENT\_CLOSED}
+    \subitem {Event Callbacks}, \hyperpage{32}
+  \item {XLIO\_SOCKET\_EVENT\_ERROR}
+    \subitem {Event Callbacks}, \hyperpage{32}
+  \item {XLIO\_SOCKET\_EVENT\_ESTABLISHED}
+    \subitem {Event Callbacks}, \hyperpage{32}
+  \item {XLIO\_SOCKET\_EVENT\_TERMINATED}
+    \subitem {Event Callbacks}, \hyperpage{32}
+  \item {xlio\_socket\_flush}
+    \subitem {Transmit Operations}, \hyperpage{25}
+  \item {xlio\_socket\_get\_pd}
+    \subitem {Socket Management}, \hyperpage{20}
+  \item {xlio\_socket\_getpeername}
+    \subitem {Socket Management}, \hyperpage{20}
+  \item {xlio\_socket\_getsockname}
+    \subitem {Socket Management}, \hyperpage{21}
+  \item {xlio\_socket\_listen}
+    \subitem {Socket Management}, \hyperpage{21}
+  \item {xlio\_socket\_rx\_cb\_t}
+    \subitem {Event Callbacks}, \hyperpage{31}
+  \item {xlio\_socket\_send}
+    \subitem {Transmit Operations}, \hyperpage{25}
+  \item {xlio\_socket\_send\_attr}, \hyperpage{36}
+  \item {XLIO\_SOCKET\_SEND\_FLAG\_FLUSH}
+    \subitem {Transmit Operations}, \hyperpage{24}
+  \item {XLIO\_SOCKET\_SEND\_FLAG\_INLINE}
+    \subitem {Transmit Operations}, \hyperpage{24}
+  \item {xlio\_socket\_sendv}
+    \subitem {Transmit Operations}, \hyperpage{26}
+  \item {xlio\_socket\_setsockopt}
+    \subitem {Socket Management}, \hyperpage{22}
+  \item {xlio\_socket\_t}
+    \subitem {Socket Management}, \hyperpage{16}
+  \item {xlio\_socket\_update}
+    \subitem {Socket Management}, \hyperpage{22}
+
+\end{theindex}

@@ -1,0 +1,58 @@
+\doxysection{xlio\+\_\+socket\+\_\+send\+\_\+attr Struct Reference}
+\hypertarget{structxlio__socket__send__attr}{}\label{structxlio__socket__send__attr}\index{xlio\_socket\_send\_attr@{xlio\_socket\_send\_attr}}
+
+
+Send operation attributes.  
+
+
+
+
+{\ttfamily \#include $<$ultrapai.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structxlio__socket__send__attr_a96986688f7a51e3ecc9b8ac32c37d088}\label{structxlio__socket__send__attr_a96986688f7a51e3ecc9b8ac32c37d088} 
+unsigned {\bfseries flags}
+\item 
+\Hypertarget{structxlio__socket__send__attr_a215914ba7acda4d722e829fdb272e347}\label{structxlio__socket__send__attr_a215914ba7acda4d722e829fdb272e347} 
+uint32\+\_\+t {\bfseries mkey}
+\item 
+\Hypertarget{structxlio__socket__send__attr_a0a4ab0329199649b2d5c3dd5494fbf34}\label{structxlio__socket__send__attr_a0a4ab0329199649b2d5c3dd5494fbf34} 
+uintptr\+\_\+t {\bfseries userdata\+\_\+op}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Send operation attributes. 
+
+Structure containing parameters for send operations (xlio\+\_\+socket\+\_\+send/sendv). Controls zero-\/copy behavior, flushing, and completion tracking.
+
+\begin{DoxyParagraph}{Zero-\/\+Copy Operation\+:}
+
+\begin{DoxyItemize}
+\item mkey\+: Memory key for registered memory regions
+\item userdata\+\_\+op\+: User data provided to completion callback
+\item For zero-\/copy, memory must be registered with ibv\+\_\+pd from \doxylink{group__xlio__socket_gaa738905839770f53bdec004bff322fb3}{xlio\+\_\+socket\+\_\+get\+\_\+pd()}
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Inline vs Zero-\/\+Copy\+:}
+
+\begin{DoxyItemize}
+\item INLINE flag\+: Data copied to internal buffers, no completion callback
+\item Zero-\/copy\+: Data sent directly from user buffer, completion callback invoked
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Structure Members\+:}
+
+\begin{DoxyItemize}
+\item unsigned flags\+: Send flags (XLIO\+\_\+\+SOCKET\+\_\+\+SEND\+\_\+\+FLAG\+\_\+\texorpdfstring{$\ast$}{*})
+\item uint32\+\_\+t mkey\+: Memory key for zero-\/copy operation (ignored for inline)
+\item uintptr\+\_\+t userdata\+\_\+op\+: User data for completion callback (zero-\/copy only) 
+\end{DoxyItemize}
+\end{DoxyParagraph}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ultrapai.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,65 @@
+\doxysection{xlio\+\_\+poll\+\_\+group\+\_\+attr Struct Reference}
+\hypertarget{structxlio__poll__group__attr}{}\label{structxlio__poll__group__attr}\index{xlio\_poll\_group\_attr@{xlio\_poll\_group\_attr}}
+
+
+Polling group attributes.  
+
+
+
+
+{\ttfamily \#include $<$ultrapai.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structxlio__poll__group__attr_a269ca2b7eaa33174f7af09fdce380beb}\label{structxlio__poll__group__attr_a269ca2b7eaa33174f7af09fdce380beb} 
+unsigned {\bfseries flags}
+\item 
+\Hypertarget{structxlio__poll__group__attr_a87ca4bcfdd80b60a373cd7cf4ede7f33}\label{structxlio__poll__group__attr_a87ca4bcfdd80b60a373cd7cf4ede7f33} 
+\mbox{\hyperlink{group__xlio__callbacks_ga3ca90ca4067870b6b8d2dcd25a93a4e5}{xlio\+\_\+socket\+\_\+event\+\_\+cb\+\_\+t}} {\bfseries socket\+\_\+event\+\_\+cb}
+\item 
+\Hypertarget{structxlio__poll__group__attr_aa9a469fc29e392200d896c1853e1264b}\label{structxlio__poll__group__attr_aa9a469fc29e392200d896c1853e1264b} 
+\mbox{\hyperlink{group__xlio__callbacks_gac6ad3cbf8333aa6c7d14281cbc301d53}{xlio\+\_\+socket\+\_\+comp\+\_\+cb\+\_\+t}} {\bfseries socket\+\_\+comp\+\_\+cb}
+\item 
+\Hypertarget{structxlio__poll__group__attr_a6bb0ac2a48cbf80b34348f5641e0f342}\label{structxlio__poll__group__attr_a6bb0ac2a48cbf80b34348f5641e0f342} 
+\mbox{\hyperlink{group__xlio__callbacks_ga8a30f804d94d7f9844405b960fa2754a}{xlio\+\_\+socket\+\_\+rx\+\_\+cb\+\_\+t}} {\bfseries socket\+\_\+rx\+\_\+cb}
+\item 
+\Hypertarget{structxlio__poll__group__attr_a1e2f42cf7a5bf75886e9e8b7fee89fdc}\label{structxlio__poll__group__attr_a1e2f42cf7a5bf75886e9e8b7fee89fdc} 
+\mbox{\hyperlink{group__xlio__callbacks_ga8878c61b5e65ec3059171fe97c8cc5b9}{xlio\+\_\+socket\+\_\+accept\+\_\+cb\+\_\+t}} {\bfseries socket\+\_\+accept\+\_\+cb}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Polling group attributes. 
+
+Structure containing configuration for a polling group creation and updates. Event callbacks are registered per group, allowing different handling logic for different types of connections.
+
+\begin{DoxyParagraph}{Required Callbacks\+:}
+
+\begin{DoxyItemize}
+\item socket\+\_\+event\+\_\+cb\+: Must be provided (handles connection state changes)
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Optional Callbacks\+:}
+
+\begin{DoxyItemize}
+\item socket\+\_\+comp\+\_\+cb\+: Zero-\/copy completion notifications
+\item socket\+\_\+rx\+\_\+cb\+: Receive data notifications
+\item socket\+\_\+accept\+\_\+cb\+: New connection acceptance (required for listening sockets)
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Structure Members\+:}
+
+\begin{DoxyItemize}
+\item unsigned flags\+: Group flags (XLIO\+\_\+\+GROUP\+\_\+\+FLAG\+\_\+\texorpdfstring{$\ast$}{*})
+\item xlio\+\_\+socket\+\_\+event\+\_\+cb\+\_\+t socket\+\_\+event\+\_\+cb\+: Socket event callback (required)
+\item xlio\+\_\+socket\+\_\+comp\+\_\+cb\+\_\+t socket\+\_\+comp\+\_\+cb\+: Zero-\/copy completion callback (optional)
+\item xlio\+\_\+socket\+\_\+rx\+\_\+cb\+\_\+t socket\+\_\+rx\+\_\+cb\+: Receive data callback (optional)
+\item xlio\+\_\+socket\+\_\+accept\+\_\+cb\+\_\+t socket\+\_\+accept\+\_\+cb\+: Accept callback for listening sockets (optional) 
+\end{DoxyItemize}
+\end{DoxyParagraph}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ultrapai.\+h\end{DoxyCompactItemize}

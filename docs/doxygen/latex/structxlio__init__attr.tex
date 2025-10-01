@@ -1,0 +1,62 @@
+\doxysection{xlio\+\_\+init\+\_\+attr Struct Reference}
+\hypertarget{structxlio__init__attr}{}\label{structxlio__init__attr}\index{xlio\_init\_attr@{xlio\_init\_attr}}
+
+
+XLIO initialization attributes.  
+
+
+
+
+{\ttfamily \#include $<$ultrapai.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structxlio__init__attr_ab97d5a39385257c283f36037f05028e1}\label{structxlio__init__attr_ab97d5a39385257c283f36037f05028e1} 
+unsigned {\bfseries flags}
+\item 
+\Hypertarget{structxlio__init__attr_aad103dea6e9bec76279037b907cabc9a}\label{structxlio__init__attr_aad103dea6e9bec76279037b907cabc9a} 
+\mbox{\hyperlink{group__xlio__callbacks_ga743f90f07d1979ec872efd634d41f53b}{xlio\+\_\+memory\+\_\+cb\+\_\+t}} {\bfseries memory\+\_\+cb}
+\item 
+\Hypertarget{structxlio__init__attr_af8993faac5f1d124895f7c527a86b6f0}\label{structxlio__init__attr_af8993faac5f1d124895f7c527a86b6f0} 
+void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} {\bfseries memory\+\_\+alloc} )(size\+\_\+t)
+\item 
+\Hypertarget{structxlio__init__attr_a217644ec9dd06dd6da64acc1eaa28792}\label{structxlio__init__attr_a217644ec9dd06dd6da64acc1eaa28792} 
+void(\texorpdfstring{$\ast$}{*} {\bfseries memory\+\_\+free} )(void \texorpdfstring{$\ast$}{*})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+XLIO initialization attributes. 
+
+Structure containing parameters for XLIO initialization with \doxylink{group__xlio__init_gaaad01a42c1616e08122aedc82680eb00}{xlio\+\_\+init\+\_\+ex()}.
+
+\begin{DoxyParagraph}{Memory Management\+:}
+
+\begin{DoxyItemize}
+\item memory\+\_\+cb\+: Called when XLIO allocates memory regions for RX buffers
+\item memory\+\_\+alloc/memory\+\_\+free\+: Optional external allocator functions
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{External Allocator Notes\+:}
+
+\begin{DoxyItemize}
+\item When external allocator is provided, XLIO uses it instead of internal allocation
+\item Current implementation allocates a single memory block during \doxylink{group__xlio__init_gaaad01a42c1616e08122aedc82680eb00}{xlio\+\_\+init\+\_\+ex()}
+\item For external allocators, hugepage\+\_\+size in memory\+\_\+cb is always reported as zero
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Structure Members\+:}
+
+\begin{DoxyItemize}
+\item unsigned flags\+: Initialization flags (reserved for future use)
+\item xlio\+\_\+memory\+\_\+cb\+\_\+t memory\+\_\+cb\+: Memory allocation notification callback
+\item void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*}memory\+\_\+alloc)(size\+\_\+t)\+: Optional external memory allocator function
+\item void (\texorpdfstring{$\ast$}{*}memory\+\_\+free)(void \texorpdfstring{$\ast$}{*})\+: Optional external memory deallocator function 
+\end{DoxyItemize}
+\end{DoxyParagraph}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ultrapai.\+h\end{DoxyCompactItemize}

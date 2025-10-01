@@ -1,0 +1,61 @@
+\doxysection{xlio\+\_\+socket\+\_\+attr Struct Reference}
+\hypertarget{structxlio__socket__attr}{}\label{structxlio__socket__attr}\index{xlio\_socket\_attr@{xlio\_socket\_attr}}
+
+
+Socket creation attributes.  
+
+
+
+
+{\ttfamily \#include $<$ultrapai.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structxlio__socket__attr_acb5b2c06077cd22f8e4c61361b4a427b}\label{structxlio__socket__attr_acb5b2c06077cd22f8e4c61361b4a427b} 
+unsigned {\bfseries flags}
+\item 
+\Hypertarget{structxlio__socket__attr_ae3d57540514b0308ff40c254c784d731}\label{structxlio__socket__attr_ae3d57540514b0308ff40c254c784d731} 
+int {\bfseries domain}
+\item 
+\Hypertarget{structxlio__socket__attr_a4290dc63bc27bf3acb0156742d71e026}\label{structxlio__socket__attr_a4290dc63bc27bf3acb0156742d71e026} 
+\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}} {\bfseries group}
+\item 
+\Hypertarget{structxlio__socket__attr_a962750d9f80721d93509b8a94e30373d}\label{structxlio__socket__attr_a962750d9f80721d93509b8a94e30373d} 
+uintptr\+\_\+t {\bfseries userdata\+\_\+sq}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Socket creation attributes. 
+
+Structure containing parameters for socket creation with \doxylink{group__xlio__socket_ga150ccad0ae9c3c369d32f07e6a495a29}{xlio\+\_\+socket\+\_\+create()}. The socket is automatically associated with the specified polling group.
+
+\begin{DoxyParagraph}{Domain Support\+:}
+
+\begin{DoxyItemize}
+\item AF\+\_\+\+INET\+: IPv4 support
+\item AF\+\_\+\+INET6\+: IPv6 support
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{User Data\+:}
+
+\begin{DoxyItemize}
+\item userdata\+\_\+sq\+: Application-\/defined value for socket identification in callbacks
+\item Can be updated later with \doxylink{group__xlio__socket_ga32ad9cd12d473dfe3a34147847856859}{xlio\+\_\+socket\+\_\+update()}
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Structure Members\+:}
+
+\begin{DoxyItemize}
+\item unsigned flags\+: Socket flags (reserved for future use)
+\item int domain\+: Address family (AF\+\_\+\+INET or AF\+\_\+\+INET6)
+\item xlio\+\_\+poll\+\_\+group\+\_\+t group\+: Polling group to associate socket with
+\item uintptr\+\_\+t userdata\+\_\+sq\+: User data for socket identification in callbacks 
+\end{DoxyItemize}
+\end{DoxyParagraph}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ultrapai.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,56 @@
+/* Custom CSS to decrease Doxygen section font sizes */
+
+/* Main section headers (h1) - reduce from 150% to 120% */
+h1.groupheader {
+    font-size: 130% !important;
+}
+
+/* Secondary section headers (h2) - reduce from 150% to 120% */
+h2.groupheader {
+    font-size: 120% !important;
+}
+
+/* Tertiary section headers (h3) - keep at 100% but can be reduced if needed */
+h3.groupheader {
+    font-size: 90% !important;
+}
+
+/* General heading styles - reduce all heading sizes */
+h1, h2, h3, h4, h5, h6 {
+    font-size: 90% !important;
+}
+
+/* Title class - reduce from 150% to 120% */
+.title {
+    font-size: 120% !important;
+}
+
+/* Project name - reduce from 200% to 150% */
+#projectname {
+    font-size: 150% !important;
+}
+
+/* Project brief - reduce from 90% to 80% */
+#projectbrief {
+    font-size: 80% !important;
+}
+
+/* Table of contents headers */
+div.toc h3 {
+    font-size: 11px !important;
+}
+
+/* Table headers */
+th p.starttd, th p.intertd, th p.endtd {
+    font-size: 90% !important;
+}
+
+/* Member definition titles */
+.memdef-title {
+    font-size: 85% !important;
+}
+
+/* Table headers in general */
+th {
+    font-size: 100% !important;
+}

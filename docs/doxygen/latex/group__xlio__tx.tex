@@ -1,0 +1,177 @@
+\doxysubsection{Transmit Operations}
+\hypertarget{group__xlio__tx}{}\label{group__xlio__tx}\index{Transmit Operations@{Transmit Operations}}
+
+
+High-\/performance data transmission functions.  
+
+
+\doxysubsubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structxlio__socket__send__attr}{xlio\+\_\+socket\+\_\+send\+\_\+attr}}
+\begin{DoxyCompactList}\small\item\em Send operation attributes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__xlio__tx_ga403980558fbb6486abfba090f7ee0577}{XLIO\+\_\+\+SOCKET\+\_\+\+SEND\+\_\+\+FLAG\+\_\+\+FLUSH}}~0x1
+\item 
+\#define \mbox{\hyperlink{group__xlio__tx_ga15ca89ea6a4c61a6dbe12c30f5ff3c33}{XLIO\+\_\+\+SOCKET\+\_\+\+SEND\+\_\+\+FLAG\+\_\+\+INLINE}}~0x2
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__xlio__tx_ga8a29d7bfbf64060ae099e4e0d0aa878f}{xlio\+\_\+socket\+\_\+send}} (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, const void \texorpdfstring{$\ast$}{*}data, size\+\_\+t len, const struct \mbox{\hyperlink{structxlio__socket__send__attr}{xlio\+\_\+socket\+\_\+send\+\_\+attr}} \texorpdfstring{$\ast$}{*}attr)
+\begin{DoxyCompactList}\small\item\em Send data on a socket. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__xlio__tx_ga270d274c3b3f51616bda9b10d071ff90}{xlio\+\_\+socket\+\_\+sendv}} (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, const struct iovec \texorpdfstring{$\ast$}{*}iov, unsigned iovcnt, const struct \mbox{\hyperlink{structxlio__socket__send__attr}{xlio\+\_\+socket\+\_\+send\+\_\+attr}} \texorpdfstring{$\ast$}{*}attr)
+\begin{DoxyCompactList}\small\item\em Send vectored data on a socket. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__xlio__tx_ga1f6be5297f39da8071071b7ac1e0a773}{xlio\+\_\+poll\+\_\+group\+\_\+flush}} (\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}} group)
+\begin{DoxyCompactList}\small\item\em Flush all dirty sockets in a polling group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__xlio__tx_gac300e5a65b6a40e915374a0260903a47}{xlio\+\_\+socket\+\_\+flush}} (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock)
+\begin{DoxyCompactList}\small\item\em Flush pending data on a socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+High-\/performance data transmission functions. 
+
+The XLIO Ultra API provides efficient transmission capabilities with zero-\/copy support and flexible batching options.\hypertarget{group__xlio__tx_tx_properties}{}\doxysubsubsection{\texorpdfstring{TX Flow Properties}{TX Flow Properties}}\label{group__xlio__tx_tx_properties}
+
+\begin{DoxyItemize}
+\item Non-\/blocking operation
+\item No partial write support -\/ accepts all data unless memory allocation fails
+\item Zero-\/copy completion callbacks for memory management
+\item Inline send operations support for small data
+\item Data aggregation with explicit flush control
+\end{DoxyItemize}\hypertarget{group__xlio__tx_tx_limitations}{}\doxysubsubsection{\texorpdfstring{TX Flow Limitations}{TX Flow Limitations}}\label{group__xlio__tx_tx_limitations}
+
+\begin{DoxyItemize}
+\item Currently, data can be pushed to wire in the RX flow regardless of the flush logic
+\item Avoid using \doxylink{group__xlio__tx_gac300e5a65b6a40e915374a0260903a47}{xlio\+\_\+socket\+\_\+flush()} for a XLIO\+\_\+\+GROUP\+\_\+\+FLAG\+\_\+\+DIRTY group
+\item For a XLIO\+\_\+\+GROUP\+\_\+\+FLAG\+\_\+\+DIRTY group, usage of XLIO\+\_\+\+SOCKET\+\_\+\+SEND\+\_\+\+FLAG\+\_\+\+FLUSH is limited, it\textquotesingle{}s better to avoid using them both simultaneously. 
+\end{DoxyItemize}
+
+\doxysubsubsection{Macro Definition Documentation}
+\Hypertarget{group__xlio__tx_ga403980558fbb6486abfba090f7ee0577}\label{group__xlio__tx_ga403980558fbb6486abfba090f7ee0577} 
+\index{Transmit Operations@{Transmit Operations}!XLIO\_SOCKET\_SEND\_FLAG\_FLUSH@{XLIO\_SOCKET\_SEND\_FLAG\_FLUSH}}
+\index{XLIO\_SOCKET\_SEND\_FLAG\_FLUSH@{XLIO\_SOCKET\_SEND\_FLAG\_FLUSH}!Transmit Operations@{Transmit Operations}}
+\doxysubsubsubsection{\texorpdfstring{XLIO\_SOCKET\_SEND\_FLAG\_FLUSH}{XLIO\_SOCKET\_SEND\_FLAG\_FLUSH}}
+{\footnotesize\ttfamily \#define XLIO\+\_\+\+SOCKET\+\_\+\+SEND\+\_\+\+FLAG\+\_\+\+FLUSH~0x1}
+
+Flush socket after queueing the data. \Hypertarget{group__xlio__tx_ga15ca89ea6a4c61a6dbe12c30f5ff3c33}\label{group__xlio__tx_ga15ca89ea6a4c61a6dbe12c30f5ff3c33} 
+\index{Transmit Operations@{Transmit Operations}!XLIO\_SOCKET\_SEND\_FLAG\_INLINE@{XLIO\_SOCKET\_SEND\_FLAG\_INLINE}}
+\index{XLIO\_SOCKET\_SEND\_FLAG\_INLINE@{XLIO\_SOCKET\_SEND\_FLAG\_INLINE}!Transmit Operations@{Transmit Operations}}
+\doxysubsubsubsection{\texorpdfstring{XLIO\_SOCKET\_SEND\_FLAG\_INLINE}{XLIO\_SOCKET\_SEND\_FLAG\_INLINE}}
+{\footnotesize\ttfamily \#define XLIO\+\_\+\+SOCKET\+\_\+\+SEND\+\_\+\+FLAG\+\_\+\+INLINE~0x2}
+
+Copy user data to the internal buffers instead of taking ownership. 
+
+\doxysubsubsection{Function Documentation}
+\Hypertarget{group__xlio__tx_ga1f6be5297f39da8071071b7ac1e0a773}\label{group__xlio__tx_ga1f6be5297f39da8071071b7ac1e0a773} 
+\index{Transmit Operations@{Transmit Operations}!xlio\_poll\_group\_flush@{xlio\_poll\_group\_flush}}
+\index{xlio\_poll\_group\_flush@{xlio\_poll\_group\_flush}!Transmit Operations@{Transmit Operations}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_poll\_group\_flush()}{xlio\_poll\_group\_flush()}}
+{\footnotesize\ttfamily void xlio\+\_\+poll\+\_\+group\+\_\+flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}}}]{group }\end{DoxyParamCaption})}
+
+
+
+Flush all dirty sockets in a polling group. 
+
+For polling groups created with XLIO\+\_\+\+GROUP\+\_\+\+FLAG\+\_\+\+DIRTY, this function flushes all sockets that have pending data to send. This provides batch flushing capabilities for improved performance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em group} & The polling group to flush\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function should only be used with groups that have the XLIO\+\_\+\+GROUP\+\_\+\+FLAG\+\_\+\+DIRTY flag set. 
+\end{DoxyNote}
+\Hypertarget{group__xlio__tx_gac300e5a65b6a40e915374a0260903a47}\label{group__xlio__tx_gac300e5a65b6a40e915374a0260903a47} 
+\index{Transmit Operations@{Transmit Operations}!xlio\_socket\_flush@{xlio\_socket\_flush}}
+\index{xlio\_socket\_flush@{xlio\_socket\_flush}!Transmit Operations@{Transmit Operations}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_flush()}{xlio\_socket\_flush()}}
+{\footnotesize\ttfamily void xlio\+\_\+socket\+\_\+flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}]{sock }\end{DoxyParamCaption})}
+
+
+
+Flush pending data on a socket. 
+
+Forces transmission of any data queued on the socket. XLIO aggregates data by default for efficiency and user logic simplification.
+
+This function doesn\textquotesingle{}t guarantee immediate transmission, because TCP algorithms and congestion/flow control may affect transmission.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket to flush\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Avoid using this function with sockets in XLIO\+\_\+\+GROUP\+\_\+\+FLAG\+\_\+\+DIRTY groups. Use \doxylink{group__xlio__tx_ga1f6be5297f39da8071071b7ac1e0a773}{xlio\+\_\+poll\+\_\+group\+\_\+flush()} instead for better performance for such groups. 
+\end{DoxyNote}
+\Hypertarget{group__xlio__tx_ga8a29d7bfbf64060ae099e4e0d0aa878f}\label{group__xlio__tx_ga8a29d7bfbf64060ae099e4e0d0aa878f} 
+\index{Transmit Operations@{Transmit Operations}!xlio\_socket\_send@{xlio\_socket\_send}}
+\index{xlio\_socket\_send@{xlio\_socket\_send}!Transmit Operations@{Transmit Operations}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_send()}{xlio\_socket\_send()}}
+{\footnotesize\ttfamily int xlio\+\_\+socket\+\_\+send (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}]{sock,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t}]{len,  }\item[{const struct \mbox{\hyperlink{structxlio__socket__send__attr}{xlio\+\_\+socket\+\_\+send\+\_\+attr}} \texorpdfstring{$\ast$}{*}}]{attr }\end{DoxyParamCaption})}
+
+
+
+Send data on a socket. 
+
+Sends data on the specified socket using zero-\/copy by default. The operation is non-\/blocking and accepts all data unless memory allocation fails.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket to send data on \\
+\hline
+{\em data} & Pointer to the data to send \\
+\hline
+{\em len} & Length of the data \\
+\hline
+{\em attr} & Send attributes controlling the operation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error (errno is set)
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Error Codes\+:}
+
+\begin{DoxyItemize}
+\item ENOMEM\+: Insufficient memory (recoverable by retrying later)
+\item Other errors are generally not recoverable
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyNote}{Note}
+For zero-\/copy operation, the memory must be registered with the Infini\+Band protection domain obtained from \doxylink{group__xlio__socket_gaa738905839770f53bdec004bff322fb3}{xlio\+\_\+socket\+\_\+get\+\_\+pd()}.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structxlio__socket__send__attr}{xlio\+\_\+socket\+\_\+send\+\_\+attr} 
+\end{DoxySeeAlso}
+\Hypertarget{group__xlio__tx_ga270d274c3b3f51616bda9b10d071ff90}\label{group__xlio__tx_ga270d274c3b3f51616bda9b10d071ff90} 
+\index{Transmit Operations@{Transmit Operations}!xlio\_socket\_sendv@{xlio\_socket\_sendv}}
+\index{xlio\_socket\_sendv@{xlio\_socket\_sendv}!Transmit Operations@{Transmit Operations}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_sendv()}{xlio\_socket\_sendv()}}
+{\footnotesize\ttfamily int xlio\+\_\+socket\+\_\+sendv (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}]{sock,  }\item[{const struct iovec \texorpdfstring{$\ast$}{*}}]{iov,  }\item[{unsigned}]{iovcnt,  }\item[{const struct \mbox{\hyperlink{structxlio__socket__send__attr}{xlio\+\_\+socket\+\_\+send\+\_\+attr}} \texorpdfstring{$\ast$}{*}}]{attr }\end{DoxyParamCaption})}
+
+
+
+Send vectored data on a socket. 
+
+Sends data from multiple buffers (scatter-\/gather) on the specified socket.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket to send data on \\
+\hline
+{\em iov} & Array of iovec structures describing the data buffers \\
+\hline
+{\em iovcnt} & Number of iovec structures \\
+\hline
+{\em attr} & Send attributes controlling the operation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error (errno is set)
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group__xlio__tx_ga8a29d7bfbf64060ae099e4e0d0aa878f}{xlio\+\_\+socket\+\_\+send()} 
+\end{DoxySeeAlso}

@@ -1,0 +1,243 @@
+\doxysubsection{Event Callbacks}
+\hypertarget{group__xlio__callbacks}{}\label{group__xlio__callbacks}\index{Event Callbacks@{Event Callbacks}}
+
+
+Callback functions for handling socket events.  
+
+
+\doxysubsubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group__xlio__callbacks_ga743f90f07d1979ec872efd634d41f53b}{xlio\+\_\+memory\+\_\+cb\+\_\+t}}) (void \texorpdfstring{$\ast$}{*}addr, size\+\_\+t len, size\+\_\+t hugepage\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Memory allocation callback function. \end{DoxyCompactList}\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group__xlio__callbacks_ga3ca90ca4067870b6b8d2dcd25a93a4e5}{xlio\+\_\+socket\+\_\+event\+\_\+cb\+\_\+t}}) (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, uintptr\+\_\+t userdata\+\_\+sq, int event, int value)
+\begin{DoxyCompactList}\small\item\em Socket event callback function. \end{DoxyCompactList}\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group__xlio__callbacks_gac6ad3cbf8333aa6c7d14281cbc301d53}{xlio\+\_\+socket\+\_\+comp\+\_\+cb\+\_\+t}}) (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, uintptr\+\_\+t userdata\+\_\+sq, uintptr\+\_\+t userdata\+\_\+op)
+\begin{DoxyCompactList}\small\item\em Zero-\/copy completion callback function. \end{DoxyCompactList}\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group__xlio__callbacks_ga8a30f804d94d7f9844405b960fa2754a}{xlio\+\_\+socket\+\_\+rx\+\_\+cb\+\_\+t}}) (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, uintptr\+\_\+t userdata\+\_\+sq, void \texorpdfstring{$\ast$}{*}data, size\+\_\+t len, struct \mbox{\hyperlink{structxlio__buf}{xlio\+\_\+buf}} \texorpdfstring{$\ast$}{*}buf)
+\begin{DoxyCompactList}\small\item\em Receive data callback function. \end{DoxyCompactList}\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group__xlio__callbacks_ga8878c61b5e65ec3059171fe97c8cc5b9}{xlio\+\_\+socket\+\_\+accept\+\_\+cb\+\_\+t}}) (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, \mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} parent, uintptr\+\_\+t parent\+\_\+userdata\+\_\+sq)
+\begin{DoxyCompactList}\small\item\em Accept callback function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \mbox{\hyperlink{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55ba64a27637fe8150131ca9124d69025eb0}{XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\+ESTABLISHED}} = 1
+, \mbox{\hyperlink{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55bafa9f390ddeda526af639428b95e60d2c}{XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\+TERMINATED}}
+, \mbox{\hyperlink{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55bad0c147a2ab69f4e6b7a096e7597529b7}{XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\+CLOSED}}
+, \mbox{\hyperlink{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55ba82a5767162748fd44cb6469ec5fe9494}{XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\+ERROR}}
+ \}
+\begin{DoxyCompactList}\small\item\em Socket events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+Callback functions for handling socket events. 
+
+The XLIO Ultra API uses callbacks to notify applications of various events including connection state changes, data arrival, and completion of zero-\/copy operations.
+
+Most of the callbacks are expected from the \doxylink{group__xlio__poll__group_gafc07446ac8afb352c6b425b2e5cb4efc}{xlio\+\_\+poll\+\_\+group\+\_\+poll()} context. 
+
+\doxysubsubsection{Typedef Documentation}
+\Hypertarget{group__xlio__callbacks_ga743f90f07d1979ec872efd634d41f53b}\label{group__xlio__callbacks_ga743f90f07d1979ec872efd634d41f53b} 
+\index{Event Callbacks@{Event Callbacks}!xlio\_memory\_cb\_t@{xlio\_memory\_cb\_t}}
+\index{xlio\_memory\_cb\_t@{xlio\_memory\_cb\_t}!Event Callbacks@{Event Callbacks}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_memory\_cb\_t}{xlio\_memory\_cb\_t}}
+{\footnotesize\ttfamily typedef void(\texorpdfstring{$\ast$}{*} xlio\+\_\+memory\+\_\+cb\+\_\+t) (void \texorpdfstring{$\ast$}{*}addr, size\+\_\+t len, size\+\_\+t hugepage\+\_\+size)}
+
+
+
+Memory allocation callback function. 
+
+This callback is invoked when XLIO allocates memory regions that can be used for RX buffers. Applications can use this information for memory management or preparation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & Base address of the allocated memory \\
+\hline
+{\em len} & Size of the allocated memory \\
+\hline
+{\em hugepage\+\_\+size} & Page size if hugepages are used, 0 for regular pages\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If hugepage\+\_\+size is non-\/zero, both addr and len are aligned to the page size boundary. For external allocators, hugepage\+\_\+size is always reported as zero.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structxlio__init__attr}{xlio\+\_\+init\+\_\+attr} 
+\end{DoxySeeAlso}
+\Hypertarget{group__xlio__callbacks_ga8878c61b5e65ec3059171fe97c8cc5b9}\label{group__xlio__callbacks_ga8878c61b5e65ec3059171fe97c8cc5b9} 
+\index{Event Callbacks@{Event Callbacks}!xlio\_socket\_accept\_cb\_t@{xlio\_socket\_accept\_cb\_t}}
+\index{xlio\_socket\_accept\_cb\_t@{xlio\_socket\_accept\_cb\_t}!Event Callbacks@{Event Callbacks}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_accept\_cb\_t}{xlio\_socket\_accept\_cb\_t}}
+{\footnotesize\ttfamily typedef void(\texorpdfstring{$\ast$}{*} xlio\+\_\+socket\+\_\+accept\+\_\+cb\+\_\+t) (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, \mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} parent, uintptr\+\_\+t parent\+\_\+userdata\+\_\+sq)}
+
+
+
+Accept callback function. 
+
+This callback is invoked when a new connection is accepted on a listening socket. The new socket is automatically created and associated with the same polling group.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The newly accepted socket \\
+\hline
+{\em parent} & The listening socket that accepted the connection \\
+\hline
+{\em parent\+\_\+userdata\+\_\+sq} & User data from the parent socket\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The new socket inherits the polling group from the parent but may need additional configuration (e.\+g., userdata\+\_\+sq update).
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group__xlio__socket_ga32ad9cd12d473dfe3a34147847856859}{xlio\+\_\+socket\+\_\+update()} 
+
+\doxylink{structxlio__poll__group__attr}{xlio\+\_\+poll\+\_\+group\+\_\+attr} 
+\end{DoxySeeAlso}
+\Hypertarget{group__xlio__callbacks_gac6ad3cbf8333aa6c7d14281cbc301d53}\label{group__xlio__callbacks_gac6ad3cbf8333aa6c7d14281cbc301d53} 
+\index{Event Callbacks@{Event Callbacks}!xlio\_socket\_comp\_cb\_t@{xlio\_socket\_comp\_cb\_t}}
+\index{xlio\_socket\_comp\_cb\_t@{xlio\_socket\_comp\_cb\_t}!Event Callbacks@{Event Callbacks}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_comp\_cb\_t}{xlio\_socket\_comp\_cb\_t}}
+{\footnotesize\ttfamily typedef void(\texorpdfstring{$\ast$}{*} xlio\+\_\+socket\+\_\+comp\+\_\+cb\+\_\+t) (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, uintptr\+\_\+t userdata\+\_\+sq, uintptr\+\_\+t userdata\+\_\+op)}
+
+
+
+Zero-\/copy completion callback function. 
+
+This callback is invoked when a zero-\/copy send operation completes, allowing the application to reclaim or reuse the transmitted buffers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket that completed the operation \\
+\hline
+{\em userdata\+\_\+sq} & User data associated with the socket \\
+\hline
+{\em userdata\+\_\+op} & User data associated with the specific operation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Calling Contexts\+:}
+
+\begin{DoxyItemize}
+\item \doxylink{group__xlio__poll__group_gafc07446ac8afb352c6b425b2e5cb4efc}{xlio\+\_\+poll\+\_\+group\+\_\+poll()} (most common)
+\item \doxylink{group__xlio__tx_ga8a29d7bfbf64060ae099e4e0d0aa878f}{xlio\+\_\+socket\+\_\+send()} (if data is immediately flushed)
+\item \doxylink{group__xlio__tx_gac300e5a65b6a40e915374a0260903a47}{xlio\+\_\+socket\+\_\+flush()} / \doxylink{group__xlio__tx_ga1f6be5297f39da8071071b7ac1e0a773}{xlio\+\_\+poll\+\_\+group\+\_\+flush()}
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyNote}{Note}
+Send operations are allowed in this callback unless the socket is being destroyed.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structxlio__socket__send__attr}{xlio\+\_\+socket\+\_\+send\+\_\+attr} 
+
+\doxylink{structxlio__poll__group__attr}{xlio\+\_\+poll\+\_\+group\+\_\+attr} 
+\end{DoxySeeAlso}
+\Hypertarget{group__xlio__callbacks_ga3ca90ca4067870b6b8d2dcd25a93a4e5}\label{group__xlio__callbacks_ga3ca90ca4067870b6b8d2dcd25a93a4e5} 
+\index{Event Callbacks@{Event Callbacks}!xlio\_socket\_event\_cb\_t@{xlio\_socket\_event\_cb\_t}}
+\index{xlio\_socket\_event\_cb\_t@{xlio\_socket\_event\_cb\_t}!Event Callbacks@{Event Callbacks}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_event\_cb\_t}{xlio\_socket\_event\_cb\_t}}
+{\footnotesize\ttfamily typedef void(\texorpdfstring{$\ast$}{*} xlio\+\_\+socket\+\_\+event\+\_\+cb\+\_\+t) (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, uintptr\+\_\+t userdata\+\_\+sq, int event, int value)}
+
+
+
+Socket event callback function. 
+
+This callback is invoked when socket state changes occur, such as connection establishment, errors, or termination.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket generating the event \\
+\hline
+{\em userdata\+\_\+sq} & User data associated with the socket \\
+\hline
+{\em event} & The event type (XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\texorpdfstring{$\ast$}{*}) \\
+\hline
+{\em value} & Event-\/specific value (error code for ERROR events, 0 otherwise)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Event Types\+:}
+
+\begin{DoxyItemize}
+\item XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\+ESTABLISHED\+: TCP connection established
+\item XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\+TERMINATED\+: Socket terminated, no further events
+\item XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\+CLOSED\+: Passive close by remote peer
+\item XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\+ERROR\+: Error occurred, see value for error code
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Error Codes (for ERROR events)\+:}
+
+\begin{DoxyItemize}
+\item ECONNABORTED\+: Connection aborted by local side
+\item ECONNRESET\+: Connection reset by remote side
+\item ECONNREFUSED\+: Connection refused during handshake
+\item ETIMEDOUT\+: Connection timed out
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyNote}{Note}
+Send operations are allowed only from the ESTABLISHED event context.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structxlio__poll__group__attr}{xlio\+\_\+poll\+\_\+group\+\_\+attr} 
+\end{DoxySeeAlso}
+\Hypertarget{group__xlio__callbacks_ga8a30f804d94d7f9844405b960fa2754a}\label{group__xlio__callbacks_ga8a30f804d94d7f9844405b960fa2754a} 
+\index{Event Callbacks@{Event Callbacks}!xlio\_socket\_rx\_cb\_t@{xlio\_socket\_rx\_cb\_t}}
+\index{xlio\_socket\_rx\_cb\_t@{xlio\_socket\_rx\_cb\_t}!Event Callbacks@{Event Callbacks}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_rx\_cb\_t}{xlio\_socket\_rx\_cb\_t}}
+{\footnotesize\ttfamily typedef void(\texorpdfstring{$\ast$}{*} xlio\+\_\+socket\+\_\+rx\+\_\+cb\+\_\+t) (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, uintptr\+\_\+t userdata\+\_\+sq, void \texorpdfstring{$\ast$}{*}data, size\+\_\+t len, struct \mbox{\hyperlink{structxlio__buf}{xlio\+\_\+buf}} \texorpdfstring{$\ast$}{*}buf)}
+
+
+
+Receive data callback function. 
+
+This callback is invoked when TCP payload arrives on a socket. Each call provides a single contiguous buffer containing received data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket that received the data \\
+\hline
+{\em userdata\+\_\+sq} & User data associated with the socket \\
+\hline
+{\em data} & Pointer to the received data \\
+\hline
+{\em len} & Length of the received data \\
+\hline
+{\em buf} & Buffer descriptor that must be returned via xlio\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+buf\+\_\+free()\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The data pointer is valid only until the buffer is freed. The buffer\textquotesingle{}s userdata field can be used during user ownership.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group__xlio__rx_ga6a9b197dd9109326ed9d6a4d40aca350}{xlio\+\_\+socket\+\_\+buf\+\_\+free()} 
+
+\doxylink{group__xlio__rx_gaf323c63fd34349bb93583a3695cbc03a}{xlio\+\_\+poll\+\_\+group\+\_\+buf\+\_\+free()} 
+
+\doxylink{structxlio__poll__group__attr}{xlio\+\_\+poll\+\_\+group\+\_\+attr} 
+\end{DoxySeeAlso}
+
+
+\doxysubsubsection{Enumeration Type Documentation}
+\Hypertarget{group__xlio__callbacks_ga06fc87d81c62e9abb8790b6e5713c55b}\label{group__xlio__callbacks_ga06fc87d81c62e9abb8790b6e5713c55b} 
+\doxysubsubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+
+
+Socket events. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XLIO\_SOCKET\_EVENT\_ESTABLISHED@{XLIO\_SOCKET\_EVENT\_ESTABLISHED}!Event Callbacks@{Event Callbacks}}\index{Event Callbacks@{Event Callbacks}!XLIO\_SOCKET\_EVENT\_ESTABLISHED@{XLIO\_SOCKET\_EVENT\_ESTABLISHED}}}\Hypertarget{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55ba64a27637fe8150131ca9124d69025eb0}\label{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55ba64a27637fe8150131ca9124d69025eb0} 
+XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\+ESTABLISHED&TCP connection established. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XLIO\_SOCKET\_EVENT\_TERMINATED@{XLIO\_SOCKET\_EVENT\_TERMINATED}!Event Callbacks@{Event Callbacks}}\index{Event Callbacks@{Event Callbacks}!XLIO\_SOCKET\_EVENT\_TERMINATED@{XLIO\_SOCKET\_EVENT\_TERMINATED}}}\Hypertarget{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55bafa9f390ddeda526af639428b95e60d2c}\label{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55bafa9f390ddeda526af639428b95e60d2c} 
+XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\+TERMINATED&Socket terminated and no further events are possible. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XLIO\_SOCKET\_EVENT\_CLOSED@{XLIO\_SOCKET\_EVENT\_CLOSED}!Event Callbacks@{Event Callbacks}}\index{Event Callbacks@{Event Callbacks}!XLIO\_SOCKET\_EVENT\_CLOSED@{XLIO\_SOCKET\_EVENT\_CLOSED}}}\Hypertarget{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55bad0c147a2ab69f4e6b7a096e7597529b7}\label{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55bad0c147a2ab69f4e6b7a096e7597529b7} 
+XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\+CLOSED&Passive close. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XLIO\_SOCKET\_EVENT\_ERROR@{XLIO\_SOCKET\_EVENT\_ERROR}!Event Callbacks@{Event Callbacks}}\index{Event Callbacks@{Event Callbacks}!XLIO\_SOCKET\_EVENT\_ERROR@{XLIO\_SOCKET\_EVENT\_ERROR}}}\Hypertarget{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55ba82a5767162748fd44cb6469ec5fe9494}\label{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55ba82a5767162748fd44cb6469ec5fe9494} 
+XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\+ERROR&An error occurred, see the error code value. \\
+\hline
+
+\end{DoxyEnumFields}

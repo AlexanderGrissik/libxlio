@@ -1,0 +1,10 @@
+digraph "xlio_poll_group_attr"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="xlio_poll_group_attr",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Polling group attributes."];
+  Node2 -> Node1 [id="edge2_Node000001_Node000002",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" socket_rx_cb",fontcolor="grey" ];
+  Node2 [id="Node000002",label="xlio_buf",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$structxlio__buf.html",tooltip="Buffer descriptor."];
+}

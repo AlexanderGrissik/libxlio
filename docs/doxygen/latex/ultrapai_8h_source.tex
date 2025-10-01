@@ -1,0 +1,142 @@
+\doxysection{ultrapai.\+h}
+\hypertarget{ultrapai_8h_source}{}\label{ultrapai_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00086\ \textcolor{comment}{/*\ Forward\ declaration.\ */}}
+\DoxyCodeLine{00087\ \textcolor{keyword}{struct\ }ibv\_pd;}
+\DoxyCodeLine{00088\ \ }
+\DoxyCodeLine{00110\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__init_gaaad01a42c1616e08122aedc82680eb00}{xlio\_init\_ex}}(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structxlio__init__attr}{xlio\_init\_attr}}\ *attr);}
+\DoxyCodeLine{00111\ \ }
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__init_gaa391fc15cc55d316609fa769aaad754b}{xlio\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00129\ \ }
+\DoxyCodeLine{00137\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__init_ga036cf208f96e32c2fce415e8e7af1094}{xlio\_exit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00138\ \ }
+ \textcolor{comment}{// end of xlio\_init group}\DoxyCodeLine{00140\ \ }
+\DoxyCodeLine{00184\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__poll__group_gaa3782bddb1e0fadf5bade05de3daf305}{xlio\_poll\_group\_create}}(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structxlio__poll__group__attr}{xlio\_poll\_group\_attr}}\ *attr,\ \mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\_poll\_group\_t}}\ *group\_out);}
+\DoxyCodeLine{00185\ \ }
+\DoxyCodeLine{00195\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__poll__group_ga173cdc05fb5e6dc1b1f3ed2bf6cc41be}{xlio\_poll\_group\_destroy}}(\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\_poll\_group\_t}}\ group);}
+\DoxyCodeLine{00196\ \ }
+\DoxyCodeLine{00210\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__poll__group_gac9687736c8cff028b36c68ab32847ed3}{xlio\_poll\_group\_update}}(\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\_poll\_group\_t}}\ group,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structxlio__poll__group__attr}{xlio\_poll\_group\_attr}}\ *attr);}
+\DoxyCodeLine{00211\ \ }
+\DoxyCodeLine{00224\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__xlio__poll__group_gafc07446ac8afb352c6b425b2e5cb4efc}{xlio\_poll\_group\_poll}}(\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\_poll\_group\_t}}\ group);}
+\DoxyCodeLine{00225\ \ }
+ \textcolor{comment}{// end of xlio\_poll\_group group}\DoxyCodeLine{00227\ \ }
+\DoxyCodeLine{00259\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__socket_ga150ccad0ae9c3c369d32f07e6a495a29}{xlio\_socket\_create}}(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structxlio__socket__attr}{xlio\_socket\_attr}}\ *attr,\ \mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ *sock\_out);}
+\DoxyCodeLine{00260\ \ }
+\DoxyCodeLine{00277\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__socket_ga7254d9d8b5e17204750b91b95c3264ad}{xlio\_socket\_destroy}}(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock);}
+\DoxyCodeLine{00278\ \ }
+\DoxyCodeLine{00290\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__socket_ga32ad9cd12d473dfe3a34147847856859}{xlio\_socket\_update}}(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock,\ \textcolor{keywordtype}{unsigned}\ flags,\ uintptr\_t\ userdata\_sq);}
+\DoxyCodeLine{00291\ \ }
+\DoxyCodeLine{00307\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__socket_gaa72a034bf58bd1090b0a2414a06a63c9}{xlio\_socket\_setsockopt}}(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock,\ \textcolor{keywordtype}{int}\ level,\ \textcolor{keywordtype}{int}\ optname,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *optval,}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ socklen\_t\ optlen);}
+\DoxyCodeLine{00309\ \ }
+\DoxyCodeLine{00322\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__socket_ga6481eaa78bb5ffc76f5612608eebd9de}{xlio\_socket\_getsockname}}(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock,\ \textcolor{keyword}{struct}\ sockaddr\ *addr,\ socklen\_t\ *addrlen);}
+\DoxyCodeLine{00323\ \ }
+\DoxyCodeLine{00336\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__socket_ga878881f08a6946596aff947f5e23637a}{xlio\_socket\_getpeername}}(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock,\ \textcolor{keyword}{struct}\ sockaddr\ *addr,\ socklen\_t\ *addrlen);}
+\DoxyCodeLine{00337\ \ }
+\DoxyCodeLine{00354\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__socket_gae9a628694e78594fa596ca3bbd9ed71b}{xlio\_socket\_bind}}(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ sockaddr\ *addr,\ socklen\_t\ addrlen);}
+\DoxyCodeLine{00355\ \ }
+\DoxyCodeLine{00379\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__socket_gaf598f569dbda1c7c501a86a6bd86fe05}{xlio\_socket\_connect}}(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ sockaddr\ *to,\ socklen\_t\ tolen);}
+\DoxyCodeLine{00380\ \ }
+\DoxyCodeLine{00401\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__socket_ga51a705d503e888eb6103af8e32ea8e79}{xlio\_socket\_listen}}(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock);}
+\DoxyCodeLine{00402\ \ }
+\DoxyCodeLine{00414\ \textcolor{keyword}{struct\ }ibv\_pd\ *\mbox{\hyperlink{group__xlio__socket_gaa738905839770f53bdec004bff322fb3}{xlio\_socket\_get\_pd}}(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock);}
+\DoxyCodeLine{00415\ \ }
+\DoxyCodeLine{00434\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__socket_ga9f3838dacceea9f316b1cf2f466eba45}{xlio\_socket\_detach\_group}}(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock);}
+\DoxyCodeLine{00435\ \ }
+\DoxyCodeLine{00452\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__socket_ga060b0b8c4dec58c7acb14877a3f6f97e}{xlio\_socket\_attach\_group}}(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock,\ \mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\_poll\_group\_t}}\ group);}
+\DoxyCodeLine{00453\ \ }
+ \textcolor{comment}{// end of xlio\_socket group}\DoxyCodeLine{00455\ \ }
+\DoxyCodeLine{00500\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__tx_ga8a29d7bfbf64060ae099e4e0d0aa878f}{xlio\_socket\_send}}(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *data,\ \textcolor{keywordtype}{size\_t}\ len,}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structxlio__socket__send__attr}{xlio\_socket\_send\_attr}}\ *attr);}
+\DoxyCodeLine{00502\ \ }
+\DoxyCodeLine{00516\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group__xlio__tx_ga270d274c3b3f51616bda9b10d071ff90}{xlio\_socket\_sendv}}(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ iovec\ *iov,\ \textcolor{keywordtype}{unsigned}\ iovcnt,}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structxlio__socket__send__attr}{xlio\_socket\_send\_attr}}\ *attr);}
+\DoxyCodeLine{00518\ \ }
+\DoxyCodeLine{00531\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__xlio__tx_ga1f6be5297f39da8071071b7ac1e0a773}{xlio\_poll\_group\_flush}}(\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\_poll\_group\_t}}\ group);}
+\DoxyCodeLine{00532\ \ }
+\DoxyCodeLine{00547\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__xlio__tx_gac300e5a65b6a40e915374a0260903a47}{xlio\_socket\_flush}}(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock);}
+\DoxyCodeLine{00548\ \ }
+ \textcolor{comment}{// end of xlio\_tx group}\DoxyCodeLine{00550\ \ }
+\DoxyCodeLine{00582\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__xlio__rx_ga6a9b197dd9109326ed9d6a4d40aca350}{xlio\_socket\_buf\_free}}(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structxlio__buf}{xlio\_buf}}\ *buf);}
+\DoxyCodeLine{00583\ \ }
+\DoxyCodeLine{00595\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__xlio__rx_gaf323c63fd34349bb93583a3695cbc03a}{xlio\_poll\_group\_buf\_free}}(\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\_poll\_group\_t}}\ group,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structxlio__buf}{xlio\_buf}}\ *buf);}
+\DoxyCodeLine{00596\ \ }
+ \textcolor{comment}{// end of xlio\_rx group}\DoxyCodeLine{00598\ \ }
+ \textcolor{comment}{// end of xlio\_ultra\_api group}\DoxyCodeLine{00600\ }
+\DoxyCodeLine{00601\ }
+\DoxyCodeLine{00602\ XLIO\ Zerocopy\ API\ Data\ Structures}
+\DoxyCodeLine{00614\ \textcolor{keyword}{typedef}\ uintptr\_t\ \mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\_poll\_group\_t}};}
+\DoxyCodeLine{00615\ \ }
+\DoxyCodeLine{00622\ \textcolor{keyword}{typedef}\ uintptr\_t\ \mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}};}
+\DoxyCodeLine{00623\ \ }
+\DoxyCodeLine{00648\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structxlio__buf}{xlio\_buf}}\ \{}
+\DoxyCodeLine{00649\ \ \ \ \ uint64\_t\ userdata;}
+\DoxyCodeLine{00650\ \};}
+\DoxyCodeLine{00651\ \ }
+ \textcolor{comment}{// end of xlio\_rx group}\DoxyCodeLine{00653\ \ }
+\DoxyCodeLine{00684\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{group__xlio__callbacks_ga743f90f07d1979ec872efd634d41f53b}{xlio\_memory\_cb\_t}})(\textcolor{keywordtype}{void}\ *addr,\ \textcolor{keywordtype}{size\_t}\ len,\ \textcolor{keywordtype}{size\_t}\ hugepage\_size);}
+\DoxyCodeLine{00685\ \ }
+\DoxyCodeLine{00687\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00689\ \ \ \ \ \mbox{\hyperlink{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55ba64a27637fe8150131ca9124d69025eb0}{XLIO\_SOCKET\_EVENT\_ESTABLISHED}}\ =\ 1,}
+\DoxyCodeLine{00691\ \ \ \ \ \mbox{\hyperlink{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55bafa9f390ddeda526af639428b95e60d2c}{XLIO\_SOCKET\_EVENT\_TERMINATED}},}
+\DoxyCodeLine{00693\ \ \ \ \ \mbox{\hyperlink{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55bad0c147a2ab69f4e6b7a096e7597529b7}{XLIO\_SOCKET\_EVENT\_CLOSED}},}
+\DoxyCodeLine{00695\ \ \ \ \ \mbox{\hyperlink{group__xlio__callbacks_gga06fc87d81c62e9abb8790b6e5713c55ba82a5767162748fd44cb6469ec5fe9494}{XLIO\_SOCKET\_EVENT\_ERROR}},}
+\DoxyCodeLine{00696\ \};}
+\DoxyCodeLine{00697\ \ }
+\DoxyCodeLine{00725\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{group__xlio__callbacks_ga3ca90ca4067870b6b8d2dcd25a93a4e5}{xlio\_socket\_event\_cb\_t}})(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock,\ uintptr\_t\ userdata\_sq,\ \textcolor{keywordtype}{int}\ event,}
+\DoxyCodeLine{00726\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00727\ \ }
+\DoxyCodeLine{00749\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{group__xlio__callbacks_gac6ad3cbf8333aa6c7d14281cbc301d53}{xlio\_socket\_comp\_cb\_t}})(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock,\ uintptr\_t\ userdata\_sq,}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uintptr\_t\ userdata\_op);}
+\DoxyCodeLine{00751\ \ }
+\DoxyCodeLine{00771\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{group__xlio__callbacks_ga8a30f804d94d7f9844405b960fa2754a}{xlio\_socket\_rx\_cb\_t}})(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock,\ uintptr\_t\ userdata\_sq,\ \textcolor{keywordtype}{void}\ *data,}
+\DoxyCodeLine{00772\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ len,\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structxlio__buf}{xlio\_buf}}\ *buf);}
+\DoxyCodeLine{00773\ \ }
+\DoxyCodeLine{00791\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{group__xlio__callbacks_ga8878c61b5e65ec3059171fe97c8cc5b9}{xlio\_socket\_accept\_cb\_t}})(\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ sock,\ \mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\_socket\_t}}\ parent,}
+\DoxyCodeLine{00792\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uintptr\_t\ parent\_userdata\_sq);}
+\DoxyCodeLine{00793\ \ }
+ \textcolor{comment}{// end of xlio\_callbacks group}\DoxyCodeLine{00795\ \ }
+\DoxyCodeLine{00821\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structxlio__init__attr}{xlio\_init\_attr}}\ \{}
+\DoxyCodeLine{00822\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ flags;}
+\DoxyCodeLine{00823\ \ \ \ \ \mbox{\hyperlink{group__xlio__callbacks_ga743f90f07d1979ec872efd634d41f53b}{xlio\_memory\_cb\_t}}\ memory\_cb;}
+\DoxyCodeLine{00824\ \ }
+\DoxyCodeLine{00825\ \ \ \ \ \textcolor{comment}{/*\ Optional\ external\ user\ allocator\ for\ XLIO\ buffers.\ */}}
+\DoxyCodeLine{00826\ \ \ \ \ \textcolor{keywordtype}{void}\ *(*memory\_alloc)(size\_t);}
+\DoxyCodeLine{00827\ \ \ \ \ void\ (*memory\_free)(\textcolor{keywordtype}{void}\ *);}
+\DoxyCodeLine{00828\ \};}
+\DoxyCodeLine{00829\ \ }
+ \textcolor{comment}{// end of xlio\_init group}\DoxyCodeLine{00831\ \ }
+\DoxyCodeLine{00838\ \textcolor{preprocessor}{\#define\ XLIO\_GROUP\_FLAG\_SAFE\ 0x1}}
+\DoxyCodeLine{00840\ \textcolor{preprocessor}{\#define\ XLIO\_GROUP\_FLAG\_DIRTY\ 0x2}}
+\DoxyCodeLine{00841\ \ }
+\DoxyCodeLine{00864\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structxlio__poll__group__attr}{xlio\_poll\_group\_attr}}\ \{}
+\DoxyCodeLine{00865\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ flags;}
+\DoxyCodeLine{00866\ \ }
+\DoxyCodeLine{00867\ \ \ \ \ \mbox{\hyperlink{group__xlio__callbacks_ga3ca90ca4067870b6b8d2dcd25a93a4e5}{xlio\_socket\_event\_cb\_t}}\ socket\_event\_cb;}
+\DoxyCodeLine{00868\ \ \ \ \ \mbox{\hyperlink{group__xlio__callbacks_gac6ad3cbf8333aa6c7d14281cbc301d53}{xlio\_socket\_comp\_cb\_t}}\ socket\_comp\_cb;}
+\DoxyCodeLine{00869\ \ \ \ \ \mbox{\hyperlink{group__xlio__callbacks_ga8a30f804d94d7f9844405b960fa2754a}{xlio\_socket\_rx\_cb\_t}}\ socket\_rx\_cb;}
+\DoxyCodeLine{00870\ \ \ \ \ \mbox{\hyperlink{group__xlio__callbacks_ga8878c61b5e65ec3059171fe97c8cc5b9}{xlio\_socket\_accept\_cb\_t}}\ socket\_accept\_cb;}
+\DoxyCodeLine{00871\ \};}
+\DoxyCodeLine{00872\ \ }
+ \textcolor{comment}{// end of xlio\_poll\_group group}\DoxyCodeLine{00874\ \ }
+\DoxyCodeLine{00900\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structxlio__socket__attr}{xlio\_socket\_attr}}\ \{}
+\DoxyCodeLine{00901\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ flags;}
+\DoxyCodeLine{00902\ \ \ \ \ \textcolor{keywordtype}{int}\ domain;\ \textcolor{comment}{/*\ AF\_INET\ or\ AF\_INET6\ */}}
+\DoxyCodeLine{00903\ \ \ \ \ \mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\_poll\_group\_t}}\ group;}
+\DoxyCodeLine{00904\ \ \ \ \ uintptr\_t\ userdata\_sq;}
+\DoxyCodeLine{00905\ \};}
+\DoxyCodeLine{00906\ \ }
+ \textcolor{comment}{// end of xlio\_socket group}\DoxyCodeLine{00908\ \ }
+\DoxyCodeLine{00915\ \textcolor{preprocessor}{\#define\ XLIO\_SOCKET\_SEND\_FLAG\_FLUSH\ 0x1}}
+\DoxyCodeLine{00917\ \textcolor{preprocessor}{\#define\ XLIO\_SOCKET\_SEND\_FLAG\_INLINE\ 0x2}}
+\DoxyCodeLine{00918\ \ }
+\DoxyCodeLine{00939\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structxlio__socket__send__attr}{xlio\_socket\_send\_attr}}\ \{}
+\DoxyCodeLine{00940\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ flags;}
+\DoxyCodeLine{00941\ \ \ \ \ uint32\_t\ mkey;}
+\DoxyCodeLine{00942\ \ \ \ \ uintptr\_t\ userdata\_op;}
+\DoxyCodeLine{00943\ \};}
+\DoxyCodeLine{00944\ \ }
+ \textcolor{comment}{// end of xlio\_tx group}\DoxyCodeLine{00946\ \ }
+ \textcolor{comment}{// end of xlio\_ultra\_api group}
+\end{DoxyCode}

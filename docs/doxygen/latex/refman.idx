@@ -1,0 +1,92 @@
+\indexentry{XLIO Ultra API@{XLIO Ultra API}|hyperpage}{7}
+\indexentry{Initialization and Cleanup@{Initialization and Cleanup}|hyperpage}{10}
+\indexentry{Initialization and Cleanup@{Initialization and Cleanup}!xlio\_exit@{xlio\_exit}|hyperpage}{10}
+\indexentry{xlio\_exit@{xlio\_exit}!Initialization and Cleanup@{Initialization and Cleanup}|hyperpage}{10}
+\indexentry{Initialization and Cleanup@{Initialization and Cleanup}!xlio\_init@{xlio\_init}|hyperpage}{10}
+\indexentry{xlio\_init@{xlio\_init}!Initialization and Cleanup@{Initialization and Cleanup}|hyperpage}{10}
+\indexentry{Initialization and Cleanup@{Initialization and Cleanup}!xlio\_init\_ex@{xlio\_init\_ex}|hyperpage}{10}
+\indexentry{xlio\_init\_ex@{xlio\_init\_ex}!Initialization and Cleanup@{Initialization and Cleanup}|hyperpage}{10}
+\indexentry{Polling Groups@{Polling Groups}|hyperpage}{11}
+\indexentry{Polling Groups@{Polling Groups}!XLIO\_GROUP\_FLAG\_DIRTY@{XLIO\_GROUP\_FLAG\_DIRTY}|hyperpage}{12}
+\indexentry{XLIO\_GROUP\_FLAG\_DIRTY@{XLIO\_GROUP\_FLAG\_DIRTY}!Polling Groups@{Polling Groups}|hyperpage}{12}
+\indexentry{Polling Groups@{Polling Groups}!XLIO\_GROUP\_FLAG\_SAFE@{XLIO\_GROUP\_FLAG\_SAFE}|hyperpage}{12}
+\indexentry{XLIO\_GROUP\_FLAG\_SAFE@{XLIO\_GROUP\_FLAG\_SAFE}!Polling Groups@{Polling Groups}|hyperpage}{12}
+\indexentry{Polling Groups@{Polling Groups}!xlio\_poll\_group\_t@{xlio\_poll\_group\_t}|hyperpage}{13}
+\indexentry{xlio\_poll\_group\_t@{xlio\_poll\_group\_t}!Polling Groups@{Polling Groups}|hyperpage}{13}
+\indexentry{Polling Groups@{Polling Groups}!xlio\_poll\_group\_create@{xlio\_poll\_group\_create}|hyperpage}{13}
+\indexentry{xlio\_poll\_group\_create@{xlio\_poll\_group\_create}!Polling Groups@{Polling Groups}|hyperpage}{13}
+\indexentry{Polling Groups@{Polling Groups}!xlio\_poll\_group\_destroy@{xlio\_poll\_group\_destroy}|hyperpage}{13}
+\indexentry{xlio\_poll\_group\_destroy@{xlio\_poll\_group\_destroy}!Polling Groups@{Polling Groups}|hyperpage}{13}
+\indexentry{Polling Groups@{Polling Groups}!xlio\_poll\_group\_poll@{xlio\_poll\_group\_poll}|hyperpage}{14}
+\indexentry{xlio\_poll\_group\_poll@{xlio\_poll\_group\_poll}!Polling Groups@{Polling Groups}|hyperpage}{14}
+\indexentry{Polling Groups@{Polling Groups}!xlio\_poll\_group\_update@{xlio\_poll\_group\_update}|hyperpage}{14}
+\indexentry{xlio\_poll\_group\_update@{xlio\_poll\_group\_update}!Polling Groups@{Polling Groups}|hyperpage}{14}
+\indexentry{Socket Management@{Socket Management}|hyperpage}{15}
+\indexentry{Socket Management@{Socket Management}!xlio\_socket\_t@{xlio\_socket\_t}|hyperpage}{16}
+\indexentry{xlio\_socket\_t@{xlio\_socket\_t}!Socket Management@{Socket Management}|hyperpage}{16}
+\indexentry{Socket Management@{Socket Management}!xlio\_socket\_attach\_group@{xlio\_socket\_attach\_group}|hyperpage}{16}
+\indexentry{xlio\_socket\_attach\_group@{xlio\_socket\_attach\_group}!Socket Management@{Socket Management}|hyperpage}{16}
+\indexentry{Socket Management@{Socket Management}!xlio\_socket\_bind@{xlio\_socket\_bind}|hyperpage}{16}
+\indexentry{xlio\_socket\_bind@{xlio\_socket\_bind}!Socket Management@{Socket Management}|hyperpage}{16}
+\indexentry{Socket Management@{Socket Management}!xlio\_socket\_connect@{xlio\_socket\_connect}|hyperpage}{17}
+\indexentry{xlio\_socket\_connect@{xlio\_socket\_connect}!Socket Management@{Socket Management}|hyperpage}{17}
+\indexentry{Socket Management@{Socket Management}!xlio\_socket\_create@{xlio\_socket\_create}|hyperpage}{18}
+\indexentry{xlio\_socket\_create@{xlio\_socket\_create}!Socket Management@{Socket Management}|hyperpage}{18}
+\indexentry{Socket Management@{Socket Management}!xlio\_socket\_destroy@{xlio\_socket\_destroy}|hyperpage}{18}
+\indexentry{xlio\_socket\_destroy@{xlio\_socket\_destroy}!Socket Management@{Socket Management}|hyperpage}{18}
+\indexentry{Socket Management@{Socket Management}!xlio\_socket\_detach\_group@{xlio\_socket\_detach\_group}|hyperpage}{19}
+\indexentry{xlio\_socket\_detach\_group@{xlio\_socket\_detach\_group}!Socket Management@{Socket Management}|hyperpage}{19}
+\indexentry{Socket Management@{Socket Management}!xlio\_socket\_get\_pd@{xlio\_socket\_get\_pd}|hyperpage}{20}
+\indexentry{xlio\_socket\_get\_pd@{xlio\_socket\_get\_pd}!Socket Management@{Socket Management}|hyperpage}{20}
+\indexentry{Socket Management@{Socket Management}!xlio\_socket\_getpeername@{xlio\_socket\_getpeername}|hyperpage}{20}
+\indexentry{xlio\_socket\_getpeername@{xlio\_socket\_getpeername}!Socket Management@{Socket Management}|hyperpage}{20}
+\indexentry{Socket Management@{Socket Management}!xlio\_socket\_getsockname@{xlio\_socket\_getsockname}|hyperpage}{21}
+\indexentry{xlio\_socket\_getsockname@{xlio\_socket\_getsockname}!Socket Management@{Socket Management}|hyperpage}{21}
+\indexentry{Socket Management@{Socket Management}!xlio\_socket\_listen@{xlio\_socket\_listen}|hyperpage}{21}
+\indexentry{xlio\_socket\_listen@{xlio\_socket\_listen}!Socket Management@{Socket Management}|hyperpage}{21}
+\indexentry{Socket Management@{Socket Management}!xlio\_socket\_setsockopt@{xlio\_socket\_setsockopt}|hyperpage}{22}
+\indexentry{xlio\_socket\_setsockopt@{xlio\_socket\_setsockopt}!Socket Management@{Socket Management}|hyperpage}{22}
+\indexentry{Socket Management@{Socket Management}!xlio\_socket\_update@{xlio\_socket\_update}|hyperpage}{22}
+\indexentry{xlio\_socket\_update@{xlio\_socket\_update}!Socket Management@{Socket Management}|hyperpage}{22}
+\indexentry{Transmit Operations@{Transmit Operations}|hyperpage}{23}
+\indexentry{Transmit Operations@{Transmit Operations}!XLIO\_SOCKET\_SEND\_FLAG\_FLUSH@{XLIO\_SOCKET\_SEND\_FLAG\_FLUSH}|hyperpage}{24}
+\indexentry{XLIO\_SOCKET\_SEND\_FLAG\_FLUSH@{XLIO\_SOCKET\_SEND\_FLAG\_FLUSH}!Transmit Operations@{Transmit Operations}|hyperpage}{24}
+\indexentry{Transmit Operations@{Transmit Operations}!XLIO\_SOCKET\_SEND\_FLAG\_INLINE@{XLIO\_SOCKET\_SEND\_FLAG\_INLINE}|hyperpage}{24}
+\indexentry{XLIO\_SOCKET\_SEND\_FLAG\_INLINE@{XLIO\_SOCKET\_SEND\_FLAG\_INLINE}!Transmit Operations@{Transmit Operations}|hyperpage}{24}
+\indexentry{Transmit Operations@{Transmit Operations}!xlio\_poll\_group\_flush@{xlio\_poll\_group\_flush}|hyperpage}{24}
+\indexentry{xlio\_poll\_group\_flush@{xlio\_poll\_group\_flush}!Transmit Operations@{Transmit Operations}|hyperpage}{24}
+\indexentry{Transmit Operations@{Transmit Operations}!xlio\_socket\_flush@{xlio\_socket\_flush}|hyperpage}{25}
+\indexentry{xlio\_socket\_flush@{xlio\_socket\_flush}!Transmit Operations@{Transmit Operations}|hyperpage}{25}
+\indexentry{Transmit Operations@{Transmit Operations}!xlio\_socket\_send@{xlio\_socket\_send}|hyperpage}{25}
+\indexentry{xlio\_socket\_send@{xlio\_socket\_send}!Transmit Operations@{Transmit Operations}|hyperpage}{25}
+\indexentry{Transmit Operations@{Transmit Operations}!xlio\_socket\_sendv@{xlio\_socket\_sendv}|hyperpage}{26}
+\indexentry{xlio\_socket\_sendv@{xlio\_socket\_sendv}!Transmit Operations@{Transmit Operations}|hyperpage}{26}
+\indexentry{Receive Operations@{Receive Operations}|hyperpage}{26}
+\indexentry{Receive Operations@{Receive Operations}!xlio\_poll\_group\_buf\_free@{xlio\_poll\_group\_buf\_free}|hyperpage}{27}
+\indexentry{xlio\_poll\_group\_buf\_free@{xlio\_poll\_group\_buf\_free}!Receive Operations@{Receive Operations}|hyperpage}{27}
+\indexentry{Receive Operations@{Receive Operations}!xlio\_socket\_buf\_free@{xlio\_socket\_buf\_free}|hyperpage}{27}
+\indexentry{xlio\_socket\_buf\_free@{xlio\_socket\_buf\_free}!Receive Operations@{Receive Operations}|hyperpage}{27}
+\indexentry{Event Callbacks@{Event Callbacks}|hyperpage}{28}
+\indexentry{Event Callbacks@{Event Callbacks}!xlio\_memory\_cb\_t@{xlio\_memory\_cb\_t}|hyperpage}{29}
+\indexentry{xlio\_memory\_cb\_t@{xlio\_memory\_cb\_t}!Event Callbacks@{Event Callbacks}|hyperpage}{29}
+\indexentry{Event Callbacks@{Event Callbacks}!xlio\_socket\_accept\_cb\_t@{xlio\_socket\_accept\_cb\_t}|hyperpage}{29}
+\indexentry{xlio\_socket\_accept\_cb\_t@{xlio\_socket\_accept\_cb\_t}!Event Callbacks@{Event Callbacks}|hyperpage}{29}
+\indexentry{Event Callbacks@{Event Callbacks}!xlio\_socket\_comp\_cb\_t@{xlio\_socket\_comp\_cb\_t}|hyperpage}{30}
+\indexentry{xlio\_socket\_comp\_cb\_t@{xlio\_socket\_comp\_cb\_t}!Event Callbacks@{Event Callbacks}|hyperpage}{30}
+\indexentry{Event Callbacks@{Event Callbacks}!xlio\_socket\_event\_cb\_t@{xlio\_socket\_event\_cb\_t}|hyperpage}{30}
+\indexentry{xlio\_socket\_event\_cb\_t@{xlio\_socket\_event\_cb\_t}!Event Callbacks@{Event Callbacks}|hyperpage}{30}
+\indexentry{Event Callbacks@{Event Callbacks}!xlio\_socket\_rx\_cb\_t@{xlio\_socket\_rx\_cb\_t}|hyperpage}{31}
+\indexentry{xlio\_socket\_rx\_cb\_t@{xlio\_socket\_rx\_cb\_t}!Event Callbacks@{Event Callbacks}|hyperpage}{31}
+\indexentry{XLIO\_SOCKET\_EVENT\_ESTABLISHED@{XLIO\_SOCKET\_EVENT\_ESTABLISHED}!Event Callbacks@{Event Callbacks}|hyperpage}{32}
+\indexentry{Event Callbacks@{Event Callbacks}!XLIO\_SOCKET\_EVENT\_ESTABLISHED@{XLIO\_SOCKET\_EVENT\_ESTABLISHED}|hyperpage}{32}
+\indexentry{XLIO\_SOCKET\_EVENT\_TERMINATED@{XLIO\_SOCKET\_EVENT\_TERMINATED}!Event Callbacks@{Event Callbacks}|hyperpage}{32}
+\indexentry{Event Callbacks@{Event Callbacks}!XLIO\_SOCKET\_EVENT\_TERMINATED@{XLIO\_SOCKET\_EVENT\_TERMINATED}|hyperpage}{32}
+\indexentry{XLIO\_SOCKET\_EVENT\_CLOSED@{XLIO\_SOCKET\_EVENT\_CLOSED}!Event Callbacks@{Event Callbacks}|hyperpage}{32}
+\indexentry{Event Callbacks@{Event Callbacks}!XLIO\_SOCKET\_EVENT\_CLOSED@{XLIO\_SOCKET\_EVENT\_CLOSED}|hyperpage}{32}
+\indexentry{XLIO\_SOCKET\_EVENT\_ERROR@{XLIO\_SOCKET\_EVENT\_ERROR}!Event Callbacks@{Event Callbacks}|hyperpage}{32}
+\indexentry{Event Callbacks@{Event Callbacks}!XLIO\_SOCKET\_EVENT\_ERROR@{XLIO\_SOCKET\_EVENT\_ERROR}|hyperpage}{32}
+\indexentry{xlio\_buf@{xlio\_buf}|hyperpage}{33}
+\indexentry{xlio\_init\_attr@{xlio\_init\_attr}|hyperpage}{34}
+\indexentry{xlio\_poll\_group\_attr@{xlio\_poll\_group\_attr}|hyperpage}{34}
+\indexentry{xlio\_socket\_attr@{xlio\_socket\_attr}|hyperpage}{35}
+\indexentry{xlio\_socket\_send\_attr@{xlio\_socket\_send\_attr}|hyperpage}{36}

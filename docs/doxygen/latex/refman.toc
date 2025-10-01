@@ -1,0 +1,96 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Topic Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Topics}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Topic Documentation}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}XLIO Ultra API}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{7}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Key Features}{8}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Architecture Overview}{8}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Typical Workflow}{8}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}Concurrency and Thread Safety}{8}{subsection.4.1.5}%
+\contentsline {subsubsection}{\numberline {4.1.5.1}Thread Safety Model}{9}{subsubsection.4.1.5.1}%
+\contentsline {subsubsection}{\numberline {4.1.5.2}Polling Group Concurrency}{9}{subsubsection.4.1.5.2}%
+\contentsline {subsubsection}{\numberline {4.1.5.3}Serialization Requirements}{9}{subsubsection.4.1.5.3}%
+\contentsline {subsubsection}{\numberline {4.1.5.4}Thread Safety Exceptions}{9}{subsubsection.4.1.5.4}%
+\contentsline {subsection}{\numberline {4.1.6}Current Limitations}{9}{subsection.4.1.6}%
+\contentsline {subsection}{\numberline {4.1.7}Initialization and Cleanup}{10}{subsection.4.1.7}%
+\contentsline {subsubsection}{\numberline {4.1.7.1}Detailed Description}{10}{subsubsection.4.1.7.1}%
+\contentsline {subsubsection}{\numberline {4.1.7.2}Function Documentation}{10}{subsubsection.4.1.7.2}%
+\contentsline {subsubsubsection}{\numberline {4.1.7.2.1}xlio\_exit()}{10}{subsubsubsection.4.1.7.2.1}%
+\contentsline {subsubsubsection}{\numberline {4.1.7.2.2}xlio\_init()}{10}{subsubsubsection.4.1.7.2.2}%
+\contentsline {subsubsubsection}{\numberline {4.1.7.2.3}xlio\_init\_ex()}{11}{subsubsubsection.4.1.7.2.3}%
+\contentsline {subsection}{\numberline {4.1.8}Polling Groups}{11}{subsection.4.1.8}%
+\contentsline {subsubsection}{\numberline {4.1.8.1}Detailed Description}{12}{subsubsection.4.1.8.1}%
+\contentsline {subsubsection}{\numberline {4.1.8.2}Macro Definition Documentation}{12}{subsubsection.4.1.8.2}%
+\contentsline {subsubsubsection}{\numberline {4.1.8.2.1}XLIO\_GROUP\_FLAG\_DIRTY}{12}{subsubsubsection.4.1.8.2.1}%
+\contentsline {subsubsubsection}{\numberline {4.1.8.2.2}XLIO\_GROUP\_FLAG\_SAFE}{13}{subsubsubsection.4.1.8.2.2}%
+\contentsline {subsubsection}{\numberline {4.1.8.3}Typedef Documentation}{13}{subsubsection.4.1.8.3}%
+\contentsline {subsubsubsection}{\numberline {4.1.8.3.1}xlio\_poll\_group\_t}{13}{subsubsubsection.4.1.8.3.1}%
+\contentsline {subsubsection}{\numberline {4.1.8.4}Function Documentation}{13}{subsubsection.4.1.8.4}%
+\contentsline {subsubsubsection}{\numberline {4.1.8.4.1}xlio\_poll\_group\_create()}{13}{subsubsubsection.4.1.8.4.1}%
+\contentsline {subsubsubsection}{\numberline {4.1.8.4.2}xlio\_poll\_group\_destroy()}{14}{subsubsubsection.4.1.8.4.2}%
+\contentsline {subsubsubsection}{\numberline {4.1.8.4.3}xlio\_poll\_group\_poll()}{14}{subsubsubsection.4.1.8.4.3}%
+\contentsline {subsubsubsection}{\numberline {4.1.8.4.4}xlio\_poll\_group\_update()}{14}{subsubsubsection.4.1.8.4.4}%
+\contentsline {subsection}{\numberline {4.1.9}Socket Management}{15}{subsection.4.1.9}%
+\contentsline {subsubsection}{\numberline {4.1.9.1}Detailed Description}{16}{subsubsection.4.1.9.1}%
+\contentsline {subsubsection}{\numberline {4.1.9.2}Typedef Documentation}{16}{subsubsection.4.1.9.2}%
+\contentsline {subsubsubsection}{\numberline {4.1.9.2.1}xlio\_socket\_t}{16}{subsubsubsection.4.1.9.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.9.3}Function Documentation}{16}{subsubsection.4.1.9.3}%
+\contentsline {subsubsubsection}{\numberline {4.1.9.3.1}xlio\_socket\_attach\_group()}{16}{subsubsubsection.4.1.9.3.1}%
+\contentsline {subsubsubsection}{\numberline {4.1.9.3.2}xlio\_socket\_bind()}{17}{subsubsubsection.4.1.9.3.2}%
+\contentsline {subsubsubsection}{\numberline {4.1.9.3.3}xlio\_socket\_connect()}{17}{subsubsubsection.4.1.9.3.3}%
+\contentsline {subsubsubsection}{\numberline {4.1.9.3.4}xlio\_socket\_create()}{18}{subsubsubsection.4.1.9.3.4}%
+\contentsline {subsubsubsection}{\numberline {4.1.9.3.5}xlio\_socket\_destroy()}{19}{subsubsubsection.4.1.9.3.5}%
+\contentsline {subsubsubsection}{\numberline {4.1.9.3.6}xlio\_socket\_detach\_group()}{19}{subsubsubsection.4.1.9.3.6}%
+\contentsline {subsubsubsection}{\numberline {4.1.9.3.7}xlio\_socket\_get\_pd()}{20}{subsubsubsection.4.1.9.3.7}%
+\contentsline {subsubsubsection}{\numberline {4.1.9.3.8}xlio\_socket\_getpeername()}{20}{subsubsubsection.4.1.9.3.8}%
+\contentsline {subsubsubsection}{\numberline {4.1.9.3.9}xlio\_socket\_getsockname()}{21}{subsubsubsection.4.1.9.3.9}%
+\contentsline {subsubsubsection}{\numberline {4.1.9.3.10}xlio\_socket\_listen()}{21}{subsubsubsection.4.1.9.3.10}%
+\contentsline {subsubsubsection}{\numberline {4.1.9.3.11}xlio\_socket\_setsockopt()}{22}{subsubsubsection.4.1.9.3.11}%
+\contentsline {subsubsubsection}{\numberline {4.1.9.3.12}xlio\_socket\_update()}{22}{subsubsubsection.4.1.9.3.12}%
+\contentsline {subsection}{\numberline {4.1.10}Transmit Operations}{23}{subsection.4.1.10}%
+\contentsline {subsubsection}{\numberline {4.1.10.1}Detailed Description}{23}{subsubsection.4.1.10.1}%
+\contentsline {subsubsection}{\numberline {4.1.10.2}TX Flow Properties}{24}{subsubsection.4.1.10.2}%
+\contentsline {subsubsection}{\numberline {4.1.10.3}TX Flow Limitations}{24}{subsubsection.4.1.10.3}%
+\contentsline {subsubsection}{\numberline {4.1.10.4}Macro Definition Documentation}{24}{subsubsection.4.1.10.4}%
+\contentsline {subsubsubsection}{\numberline {4.1.10.4.1}XLIO\_SOCKET\_SEND\_FLAG\_FLUSH}{24}{subsubsubsection.4.1.10.4.1}%
+\contentsline {subsubsubsection}{\numberline {4.1.10.4.2}XLIO\_SOCKET\_SEND\_FLAG\_INLINE}{24}{subsubsubsection.4.1.10.4.2}%
+\contentsline {subsubsection}{\numberline {4.1.10.5}Function Documentation}{24}{subsubsection.4.1.10.5}%
+\contentsline {subsubsubsection}{\numberline {4.1.10.5.1}xlio\_poll\_group\_flush()}{24}{subsubsubsection.4.1.10.5.1}%
+\contentsline {subsubsubsection}{\numberline {4.1.10.5.2}xlio\_socket\_flush()}{25}{subsubsubsection.4.1.10.5.2}%
+\contentsline {subsubsubsection}{\numberline {4.1.10.5.3}xlio\_socket\_send()}{25}{subsubsubsection.4.1.10.5.3}%
+\contentsline {subsubsubsection}{\numberline {4.1.10.5.4}xlio\_socket\_sendv()}{26}{subsubsubsection.4.1.10.5.4}%
+\contentsline {subsection}{\numberline {4.1.11}Receive Operations}{26}{subsection.4.1.11}%
+\contentsline {subsubsection}{\numberline {4.1.11.1}Detailed Description}{27}{subsubsection.4.1.11.1}%
+\contentsline {subsubsection}{\numberline {4.1.11.2}Data Alignment Considerations}{27}{subsubsection.4.1.11.2}%
+\contentsline {subsubsection}{\numberline {4.1.11.3}Function Documentation}{27}{subsubsection.4.1.11.3}%
+\contentsline {subsubsubsection}{\numberline {4.1.11.3.1}xlio\_poll\_group\_buf\_free()}{27}{subsubsubsection.4.1.11.3.1}%
+\contentsline {subsubsubsection}{\numberline {4.1.11.3.2}xlio\_socket\_buf\_free()}{27}{subsubsubsection.4.1.11.3.2}%
+\contentsline {subsection}{\numberline {4.1.12}Event Callbacks}{28}{subsection.4.1.12}%
+\contentsline {subsubsection}{\numberline {4.1.12.1}Detailed Description}{28}{subsubsection.4.1.12.1}%
+\contentsline {subsubsection}{\numberline {4.1.12.2}Typedef Documentation}{29}{subsubsection.4.1.12.2}%
+\contentsline {subsubsubsection}{\numberline {4.1.12.2.1}xlio\_memory\_cb\_t}{29}{subsubsubsection.4.1.12.2.1}%
+\contentsline {subsubsubsection}{\numberline {4.1.12.2.2}xlio\_socket\_accept\_cb\_t}{29}{subsubsubsection.4.1.12.2.2}%
+\contentsline {subsubsubsection}{\numberline {4.1.12.2.3}xlio\_socket\_comp\_cb\_t}{30}{subsubsubsection.4.1.12.2.3}%
+\contentsline {subsubsubsection}{\numberline {4.1.12.2.4}xlio\_socket\_event\_cb\_t}{30}{subsubsubsection.4.1.12.2.4}%
+\contentsline {subsubsubsection}{\numberline {4.1.12.2.5}xlio\_socket\_rx\_cb\_t}{31}{subsubsubsection.4.1.12.2.5}%
+\contentsline {subsubsection}{\numberline {4.1.12.3}Enumeration Type Documentation}{32}{subsubsection.4.1.12.3}%
+\contentsline {subsubsubsection}{\numberline {4.1.12.3.1}anonymous enum}{32}{subsubsubsection.4.1.12.3.1}%
+\contentsline {chapter}{\numberline {5}Class Documentation}{33}{chapter.5}%
+\contentsline {section}{\numberline {5.1}xlio\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}buf Struct Reference}{33}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{33}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}xlio\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}init\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}attr Struct Reference}{34}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{34}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.3}xlio\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}poll\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}group\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}attr Struct Reference}{34}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{35}{subsection.5.3.1}%
+\contentsline {section}{\numberline {5.4}xlio\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}socket\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}attr Struct Reference}{35}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Detailed Description}{36}{subsection.5.4.1}%
+\contentsline {section}{\numberline {5.5}xlio\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}socket\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}send\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}attr Struct Reference}{36}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{37}{subsection.5.5.1}%
+\contentsline {chapter}{\numberline {6}File Documentation}{39}{chapter.6}%
+\contentsline {section}{\numberline {6.1}ultrapai.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{39}{section.6.1}%
+\contentsline {chapter}{Index}{41}{section*.23}%

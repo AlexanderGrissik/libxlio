@@ -1,0 +1,190 @@
+\doxysubsection{Polling Groups}
+\hypertarget{group__xlio__poll__group}{}\label{group__xlio__poll__group}\index{Polling Groups@{Polling Groups}}
+
+
+Functions for managing polling groups and event handling.  
+
+
+\doxysubsubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structxlio__poll__group__attr}{xlio\+\_\+poll\+\_\+group\+\_\+attr}}
+\begin{DoxyCompactList}\small\item\em Polling group attributes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__xlio__poll__group_ga1570297a3a02972d749fefadbc05eafa}{XLIO\+\_\+\+GROUP\+\_\+\+FLAG\+\_\+\+SAFE}}~0x1
+\item 
+\#define \mbox{\hyperlink{group__xlio__poll__group_gac9d597433110e98deee66b3a8314b75a}{XLIO\+\_\+\+GROUP\+\_\+\+FLAG\+\_\+\+DIRTY}}~0x2
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uintptr\+\_\+t \mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Polling group handle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__xlio__poll__group_gaa3782bddb1e0fadf5bade05de3daf305}{xlio\+\_\+poll\+\_\+group\+\_\+create}} (const struct \mbox{\hyperlink{structxlio__poll__group__attr}{xlio\+\_\+poll\+\_\+group\+\_\+attr}} \texorpdfstring{$\ast$}{*}attr, \mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}} \texorpdfstring{$\ast$}{*}group\+\_\+out)
+\begin{DoxyCompactList}\small\item\em Create a new polling group. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__xlio__poll__group_ga173cdc05fb5e6dc1b1f3ed2bf6cc41be}{xlio\+\_\+poll\+\_\+group\+\_\+destroy}} (\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}} group)
+\begin{DoxyCompactList}\small\item\em Destroy a polling group. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__xlio__poll__group_gac9687736c8cff028b36c68ab32847ed3}{xlio\+\_\+poll\+\_\+group\+\_\+update}} (\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}} group, const struct \mbox{\hyperlink{structxlio__poll__group__attr}{xlio\+\_\+poll\+\_\+group\+\_\+attr}} \texorpdfstring{$\ast$}{*}attr)
+\begin{DoxyCompactList}\small\item\em Update polling group attributes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__xlio__poll__group_gafc07446ac8afb352c6b425b2e5cb4efc}{xlio\+\_\+poll\+\_\+group\+\_\+poll}} (\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}} group)
+\begin{DoxyCompactList}\small\item\em Poll for events on a polling group. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+Functions for managing polling groups and event handling. 
+
+Polling groups are the core event management mechanism in the XLIO Ultra API. They allow applications to register event callbacks and efficiently poll for network events across multiple sockets.
+
+Polling group is a collection of sockets and resources required for their operation. Different polling groups can be used concurrently without serialization.
+
+Polling groups provide loggical sockets organization for the following purposes\+:
+\begin{DoxyItemize}
+\item Achieving concurrency and scaling
+\item Implementing different RX / completion logic
+\end{DoxyItemize}
+
+Recommendations\+:
+\begin{DoxyItemize}
+\item Groups are expected to be long lived objects. Frequent creation/destruction has a penalty.
+\item Reduce the number of different network interfaces within a group to minimum. This will optimize the HW objects utilization. However, maintaining extra groups can have an overhead. 
+\end{DoxyItemize}
+
+\doxysubsubsection{Macro Definition Documentation}
+\Hypertarget{group__xlio__poll__group_gac9d597433110e98deee66b3a8314b75a}\label{group__xlio__poll__group_gac9d597433110e98deee66b3a8314b75a} 
+\index{Polling Groups@{Polling Groups}!XLIO\_GROUP\_FLAG\_DIRTY@{XLIO\_GROUP\_FLAG\_DIRTY}}
+\index{XLIO\_GROUP\_FLAG\_DIRTY@{XLIO\_GROUP\_FLAG\_DIRTY}!Polling Groups@{Polling Groups}}
+\doxysubsubsubsection{\texorpdfstring{XLIO\_GROUP\_FLAG\_DIRTY}{XLIO\_GROUP\_FLAG\_DIRTY}}
+{\footnotesize\ttfamily \#define XLIO\+\_\+\+GROUP\+\_\+\+FLAG\+\_\+\+DIRTY~0x2}
+
+Group will keep dirty sockets to be flushed with \doxylink{group__xlio__tx_ga1f6be5297f39da8071071b7ac1e0a773}{xlio\+\_\+poll\+\_\+group\+\_\+flush()}. \Hypertarget{group__xlio__poll__group_ga1570297a3a02972d749fefadbc05eafa}\label{group__xlio__poll__group_ga1570297a3a02972d749fefadbc05eafa} 
+\index{Polling Groups@{Polling Groups}!XLIO\_GROUP\_FLAG\_SAFE@{XLIO\_GROUP\_FLAG\_SAFE}}
+\index{XLIO\_GROUP\_FLAG\_SAFE@{XLIO\_GROUP\_FLAG\_SAFE}!Polling Groups@{Polling Groups}}
+\doxysubsubsubsection{\texorpdfstring{XLIO\_GROUP\_FLAG\_SAFE}{XLIO\_GROUP\_FLAG\_SAFE}}
+{\footnotesize\ttfamily \#define XLIO\+\_\+\+GROUP\+\_\+\+FLAG\+\_\+\+SAFE~0x1}
+
+Sockets and rings will be protected with locks regardless of XLIO configuration. 
+
+\doxysubsubsection{Typedef Documentation}
+\Hypertarget{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}\label{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3} 
+\index{Polling Groups@{Polling Groups}!xlio\_poll\_group\_t@{xlio\_poll\_group\_t}}
+\index{xlio\_poll\_group\_t@{xlio\_poll\_group\_t}!Polling Groups@{Polling Groups}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_poll\_group\_t}{xlio\_poll\_group\_t}}
+{\footnotesize\ttfamily typedef uintptr\+\_\+t \mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}}}
+
+
+
+Polling group handle. 
+
+Opaque handle representing a polling group for event management. 
+
+\doxysubsubsection{Function Documentation}
+\Hypertarget{group__xlio__poll__group_gaa3782bddb1e0fadf5bade05de3daf305}\label{group__xlio__poll__group_gaa3782bddb1e0fadf5bade05de3daf305} 
+\index{Polling Groups@{Polling Groups}!xlio\_poll\_group\_create@{xlio\_poll\_group\_create}}
+\index{xlio\_poll\_group\_create@{xlio\_poll\_group\_create}!Polling Groups@{Polling Groups}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_poll\_group\_create()}{xlio\_poll\_group\_create()}}
+{\footnotesize\ttfamily int xlio\+\_\+poll\+\_\+group\+\_\+create (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structxlio__poll__group__attr}{xlio\+\_\+poll\+\_\+group\+\_\+attr}} \texorpdfstring{$\ast$}{*}}]{attr,  }\item[{\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{group\+\_\+out }\end{DoxyParamCaption})}
+
+
+
+Create a new polling group. 
+
+Creates a new polling group with the specified attributes. Event callbacks are registered per group, allowing applications to implement different handling logic for different types of connections.
+
+
+\begin{DoxyParams}{Parameters}
+{\em attr} & Polling group attributes \\
+\hline
+{\em group\+\_\+out} & Pointer to store the created group handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error (errno is set)
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Error Codes\+:}
+
+\begin{DoxyItemize}
+\item EINVAL\+: Invalid parameters (group\+\_\+out is NULL, attr is NULL, or socket\+\_\+event\+\_\+cb is NULL)
+\item ENOMEM\+: Insufficient memory
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyNote}{Note}
+socket\+\_\+event\+\_\+cb is mandatory.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group__xlio__poll__group_ga173cdc05fb5e6dc1b1f3ed2bf6cc41be}{xlio\+\_\+poll\+\_\+group\+\_\+destroy()} 
+
+\doxylink{structxlio__poll__group__attr}{xlio\+\_\+poll\+\_\+group\+\_\+attr} 
+\end{DoxySeeAlso}
+\Hypertarget{group__xlio__poll__group_ga173cdc05fb5e6dc1b1f3ed2bf6cc41be}\label{group__xlio__poll__group_ga173cdc05fb5e6dc1b1f3ed2bf6cc41be} 
+\index{Polling Groups@{Polling Groups}!xlio\_poll\_group\_destroy@{xlio\_poll\_group\_destroy}}
+\index{xlio\_poll\_group\_destroy@{xlio\_poll\_group\_destroy}!Polling Groups@{Polling Groups}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_poll\_group\_destroy()}{xlio\_poll\_group\_destroy()}}
+{\footnotesize\ttfamily int xlio\+\_\+poll\+\_\+group\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}}}]{group }\end{DoxyParamCaption})}
+
+
+
+Destroy a polling group. 
+
+Destroys the specified polling group and frees associated resources. All leftover sockets associated with this group are destroyed implicitly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em group} & The polling group to destroy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error 
+\end{DoxyReturn}
+\Hypertarget{group__xlio__poll__group_gafc07446ac8afb352c6b425b2e5cb4efc}\label{group__xlio__poll__group_gafc07446ac8afb352c6b425b2e5cb4efc} 
+\index{Polling Groups@{Polling Groups}!xlio\_poll\_group\_poll@{xlio\_poll\_group\_poll}}
+\index{xlio\_poll\_group\_poll@{xlio\_poll\_group\_poll}!Polling Groups@{Polling Groups}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_poll\_group\_poll()}{xlio\_poll\_group\_poll()}}
+{\footnotesize\ttfamily void xlio\+\_\+poll\+\_\+group\+\_\+poll (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}}}]{group }\end{DoxyParamCaption})}
+
+
+
+Poll for events on a polling group. 
+
+This is the main event processing function. It polls hardware for events, executes TCP timers, and invokes registered callbacks. Most network events are processed from the context of this call.
+
+
+\begin{DoxyParams}{Parameters}
+{\em group} & The polling group to poll\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function should be called regularly in the main event loop. It\textquotesingle{}s non-\/blocking and will return immediately if no events are available. 
+\end{DoxyNote}
+\Hypertarget{group__xlio__poll__group_gac9687736c8cff028b36c68ab32847ed3}\label{group__xlio__poll__group_gac9687736c8cff028b36c68ab32847ed3} 
+\index{Polling Groups@{Polling Groups}!xlio\_poll\_group\_update@{xlio\_poll\_group\_update}}
+\index{xlio\_poll\_group\_update@{xlio\_poll\_group\_update}!Polling Groups@{Polling Groups}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_poll\_group\_update()}{xlio\_poll\_group\_update()}}
+{\footnotesize\ttfamily int xlio\+\_\+poll\+\_\+group\+\_\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}}}]{group,  }\item[{const struct \mbox{\hyperlink{structxlio__poll__group__attr}{xlio\+\_\+poll\+\_\+group\+\_\+attr}} \texorpdfstring{$\ast$}{*}}]{attr }\end{DoxyParamCaption})}
+
+
+
+Update polling group attributes. 
+
+Updates the attributes of an existing polling group. This allows changing callback functions or flags without recreating the group.
+
+
+\begin{DoxyParams}{Parameters}
+{\em group} & The polling group to update \\
+\hline
+{\em attr} & New attributes for the group \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error (errno is set)
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Error Codes\+:}
+
+\begin{DoxyItemize}
+\item EINVAL\+: Invalid parameters (attr is NULL or socket\+\_\+event\+\_\+cb is NULL) 
+\end{DoxyItemize}
+\end{DoxyParagraph}

@@ -1,0 +1,430 @@
+\doxysubsection{Socket Management}
+\hypertarget{group__xlio__socket}{}\label{group__xlio__socket}\index{Socket Management@{Socket Management}}
+
+
+Functions for creating and managing XLIO sockets.  
+
+
+\doxysubsubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structxlio__socket__attr}{xlio\+\_\+socket\+\_\+attr}}
+\begin{DoxyCompactList}\small\item\em Socket creation attributes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uintptr\+\_\+t \mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Socket handle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__xlio__socket_ga150ccad0ae9c3c369d32f07e6a495a29}{xlio\+\_\+socket\+\_\+create}} (const struct \mbox{\hyperlink{structxlio__socket__attr}{xlio\+\_\+socket\+\_\+attr}} \texorpdfstring{$\ast$}{*}attr, \mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} \texorpdfstring{$\ast$}{*}sock\+\_\+out)
+\begin{DoxyCompactList}\small\item\em Create a new XLIO socket. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__xlio__socket_ga7254d9d8b5e17204750b91b95c3264ad}{xlio\+\_\+socket\+\_\+destroy}} (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock)
+\begin{DoxyCompactList}\small\item\em Destroy an XLIO socket. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__xlio__socket_ga32ad9cd12d473dfe3a34147847856859}{xlio\+\_\+socket\+\_\+update}} (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, unsigned flags, uintptr\+\_\+t userdata\+\_\+sq)
+\begin{DoxyCompactList}\small\item\em Update socket attributes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__xlio__socket_gaa72a034bf58bd1090b0a2414a06a63c9}{xlio\+\_\+socket\+\_\+setsockopt}} (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, int level, int optname, const void \texorpdfstring{$\ast$}{*}optval, socklen\+\_\+t optlen)
+\begin{DoxyCompactList}\small\item\em Set socket options. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__xlio__socket_ga6481eaa78bb5ffc76f5612608eebd9de}{xlio\+\_\+socket\+\_\+getsockname}} (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, struct sockaddr \texorpdfstring{$\ast$}{*}addr, socklen\+\_\+t \texorpdfstring{$\ast$}{*}addrlen)
+\begin{DoxyCompactList}\small\item\em Get socket name. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__xlio__socket_ga878881f08a6946596aff947f5e23637a}{xlio\+\_\+socket\+\_\+getpeername}} (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, struct sockaddr \texorpdfstring{$\ast$}{*}addr, socklen\+\_\+t \texorpdfstring{$\ast$}{*}addrlen)
+\begin{DoxyCompactList}\small\item\em Get peer name. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__xlio__socket_gae9a628694e78594fa596ca3bbd9ed71b}{xlio\+\_\+socket\+\_\+bind}} (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, const struct sockaddr \texorpdfstring{$\ast$}{*}addr, socklen\+\_\+t addrlen)
+\begin{DoxyCompactList}\small\item\em Bind socket to address. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__xlio__socket_gaf598f569dbda1c7c501a86a6bd86fe05}{xlio\+\_\+socket\+\_\+connect}} (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, const struct sockaddr \texorpdfstring{$\ast$}{*}to, socklen\+\_\+t tolen)
+\begin{DoxyCompactList}\small\item\em Connect socket to remote address. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__xlio__socket_ga51a705d503e888eb6103af8e32ea8e79}{xlio\+\_\+socket\+\_\+listen}} (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock)
+\begin{DoxyCompactList}\small\item\em Listen for incoming connections. \end{DoxyCompactList}\item 
+struct ibv\+\_\+pd \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group__xlio__socket_gaa738905839770f53bdec004bff322fb3}{xlio\+\_\+socket\+\_\+get\+\_\+pd}} (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock)
+\begin{DoxyCompactList}\small\item\em Get Infini\+Band protection domain. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__xlio__socket_ga9f3838dacceea9f316b1cf2f466eba45}{xlio\+\_\+socket\+\_\+detach\+\_\+group}} (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock)
+\begin{DoxyCompactList}\small\item\em Detach socket from polling group. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__xlio__socket_ga060b0b8c4dec58c7acb14877a3f6f97e}{xlio\+\_\+socket\+\_\+attach\+\_\+group}} (\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} sock, \mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}} group)
+\begin{DoxyCompactList}\small\item\em Attach socket to polling group. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+Functions for creating and managing XLIO sockets. 
+
+XLIO sockets are high-\/performance TCP socket abstractions that provide zero-\/copy capabilities. They are represented by opaque handles rather than file descriptors. 
+
+\doxysubsubsection{Typedef Documentation}
+\Hypertarget{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}\label{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588} 
+\index{Socket Management@{Socket Management}!xlio\_socket\_t@{xlio\_socket\_t}}
+\index{xlio\_socket\_t@{xlio\_socket\_t}!Socket Management@{Socket Management}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_t}{xlio\_socket\_t}}
+{\footnotesize\ttfamily typedef uintptr\+\_\+t \mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}
+
+
+
+Socket handle. 
+
+Opaque handle representing an XLIO high-\/performance socket. 
+
+\doxysubsubsection{Function Documentation}
+\Hypertarget{group__xlio__socket_ga060b0b8c4dec58c7acb14877a3f6f97e}\label{group__xlio__socket_ga060b0b8c4dec58c7acb14877a3f6f97e} 
+\index{Socket Management@{Socket Management}!xlio\_socket\_attach\_group@{xlio\_socket\_attach\_group}}
+\index{xlio\_socket\_attach\_group@{xlio\_socket\_attach\_group}!Socket Management@{Socket Management}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_attach\_group()}{xlio\_socket\_attach\_group()}}
+{\footnotesize\ttfamily int xlio\+\_\+socket\+\_\+attach\+\_\+group (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}]{sock,  }\item[{\mbox{\hyperlink{group__xlio__poll__group_gaedea53819c2c2317f52d9979b6604ae3}{xlio\+\_\+poll\+\_\+group\+\_\+t}}}]{group }\end{DoxyParamCaption})}
+
+
+
+Attach socket to polling group. 
+
+Attaches a previously detached socket to a polling group. The socket will begin generating events according to the group\textquotesingle{}s configuration.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket to attach \\
+\hline
+{\em group} & The polling group to attach to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Error Codes\+:}
+
+\begin{DoxyItemize}
+\item EINVAL\+: Socket is already attached
+\item ENOMEM\+: No memory to complete the operation
+\item ENOTCONN\+: Failed to attach TX flow
+\item ECONNABORTED\+: Failed to attach RX flow 
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\Hypertarget{group__xlio__socket_gae9a628694e78594fa596ca3bbd9ed71b}\label{group__xlio__socket_gae9a628694e78594fa596ca3bbd9ed71b} 
+\index{Socket Management@{Socket Management}!xlio\_socket\_bind@{xlio\_socket\_bind}}
+\index{xlio\_socket\_bind@{xlio\_socket\_bind}!Socket Management@{Socket Management}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_bind()}{xlio\_socket\_bind()}}
+{\footnotesize\ttfamily int xlio\+\_\+socket\+\_\+bind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}]{sock,  }\item[{const struct sockaddr \texorpdfstring{$\ast$}{*}}]{addr,  }\item[{socklen\+\_\+t}]{addrlen }\end{DoxyParamCaption})}
+
+
+
+Bind socket to address. 
+
+Binds the socket to a local address, similar to bind().
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket to bind \\
+\hline
+{\em addr} & The address to bind to \\
+\hline
+{\em addrlen} & Length of the address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error (errno is set)
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Error Codes\+:}
+
+\begin{DoxyItemize}
+\item ENODEV\+: Trying to bind to a non-\/\+NVIDIA NIC
+\item Inherits bind(2) error codes
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+bind(2) 
+\end{DoxySeeAlso}
+\Hypertarget{group__xlio__socket_gaf598f569dbda1c7c501a86a6bd86fe05}\label{group__xlio__socket_gaf598f569dbda1c7c501a86a6bd86fe05} 
+\index{Socket Management@{Socket Management}!xlio\_socket\_connect@{xlio\_socket\_connect}}
+\index{xlio\_socket\_connect@{xlio\_socket\_connect}!Socket Management@{Socket Management}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_connect()}{xlio\_socket\_connect()}}
+{\footnotesize\ttfamily int xlio\+\_\+socket\+\_\+connect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}]{sock,  }\item[{const struct sockaddr \texorpdfstring{$\ast$}{*}}]{to,  }\item[{socklen\+\_\+t}]{tolen }\end{DoxyParamCaption})}
+
+
+
+Connect socket to remote address. 
+
+Initiates a connection to a remote address. The operation is non-\/blocking, and the connection status is reported via the socket event callback.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket to connect \\
+\hline
+{\em to} & The remote address to connect to \\
+\hline
+{\em tolen} & Length of the remote address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error (errno is set)
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Error Codes\+:}
+
+\begin{DoxyItemize}
+\item EISCONN\+: The socket is already connected
+\item EALREADY\+: Previous connect attempt hasn\textquotesingle{}t been completed yet
+\item ECONNABORTED\+: Previous connect attempt has failed
+\item ENODEV\+: Cannot establish connection with XLIO Ultra API or NVIDIA NIC
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyNote}{Note}
+This function returns immediately. Connection establishment is indicated by the XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\+ESTABLISHED event. If a connection failure occurs an XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\+ERROR event will be delivered.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+connect(2) 
+\end{DoxySeeAlso}
+\Hypertarget{group__xlio__socket_ga150ccad0ae9c3c369d32f07e6a495a29}\label{group__xlio__socket_ga150ccad0ae9c3c369d32f07e6a495a29} 
+\index{Socket Management@{Socket Management}!xlio\_socket\_create@{xlio\_socket\_create}}
+\index{xlio\_socket\_create@{xlio\_socket\_create}!Socket Management@{Socket Management}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_create()}{xlio\_socket\_create()}}
+{\footnotesize\ttfamily int xlio\+\_\+socket\+\_\+create (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structxlio__socket__attr}{xlio\+\_\+socket\+\_\+attr}} \texorpdfstring{$\ast$}{*}}]{attr,  }\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{sock\+\_\+out }\end{DoxyParamCaption})}
+
+
+
+Create a new XLIO socket. 
+
+Creates a new XLIO socket with the specified attributes. The socket is automatically associated with the specified polling group and configured for high-\/performance operation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em attr} & Socket attributes \\
+\hline
+{\em sock\+\_\+out} & Pointer to store the created socket handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error (errno is set)
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Error Codes\+:}
+
+\begin{DoxyItemize}
+\item EINVAL\+: Invalid parameters (sock\+\_\+out is NULL, attr is NULL, group is invalid, or domain is not AF\+\_\+\+INET/\+AF\+\_\+\+INET6)
+\item ENOMEM\+: Insufficient memory
+\item EMFILE\+: Too many open files
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group__xlio__socket_ga7254d9d8b5e17204750b91b95c3264ad}{xlio\+\_\+socket\+\_\+destroy()} 
+
+\doxylink{structxlio__socket__attr}{xlio\+\_\+socket\+\_\+attr} 
+\end{DoxySeeAlso}
+\Hypertarget{group__xlio__socket_ga7254d9d8b5e17204750b91b95c3264ad}\label{group__xlio__socket_ga7254d9d8b5e17204750b91b95c3264ad} 
+\index{Socket Management@{Socket Management}!xlio\_socket\_destroy@{xlio\_socket\_destroy}}
+\index{xlio\_socket\_destroy@{xlio\_socket\_destroy}!Socket Management@{Socket Management}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_destroy()}{xlio\_socket\_destroy()}}
+{\footnotesize\ttfamily int xlio\+\_\+socket\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}]{sock }\end{DoxyParamCaption})}
+
+
+
+Destroy an XLIO socket. 
+
+Initiates the socket closing procedure. The process may be asynchronous, and socket events may continue to arrive until the XLIO\+\_\+\+SOCKET\+\_\+\+EVENT\+\_\+\+TERMINATED event is received.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket to destroy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error (errno is set)
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Error Codes\+:}
+
+\begin{DoxyItemize}
+\item EINVAL\+: Invalid socket handle
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyNote}{Note}
+Zero-\/copy completion events may still arrive after calling this function until the TERMINATED event is received. 
+\end{DoxyNote}
+\Hypertarget{group__xlio__socket_ga9f3838dacceea9f316b1cf2f466eba45}\label{group__xlio__socket_ga9f3838dacceea9f316b1cf2f466eba45} 
+\index{Socket Management@{Socket Management}!xlio\_socket\_detach\_group@{xlio\_socket\_detach\_group}}
+\index{xlio\_socket\_detach\_group@{xlio\_socket\_detach\_group}!Socket Management@{Socket Management}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_detach\_group()}{xlio\_socket\_detach\_group()}}
+{\footnotesize\ttfamily int xlio\+\_\+socket\+\_\+detach\+\_\+group (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}]{sock }\end{DoxyParamCaption})}
+
+
+
+Detach socket from polling group. 
+
+Removes the socket from its current polling group. The socket becomes inactive and will not generate events until attached to another group.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket to detach \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Error Codes\+:}
+
+\begin{DoxyItemize}
+\item EINVAL\+: Socket is not connected or already detached
+\item ENOTSUP\+: Not supported with listen sockets
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyNote}{Note}
+During the 2-\/step socket migration (detach -\/\texorpdfstring{$>$}{>} attach), there is a time window during which RX packets are dropped until the socket is completely attached to the new group. Applications should minimize this window to avoid packet loss and TCP retransmissions. 
+\end{DoxyNote}
+\Hypertarget{group__xlio__socket_gaa738905839770f53bdec004bff322fb3}\label{group__xlio__socket_gaa738905839770f53bdec004bff322fb3} 
+\index{Socket Management@{Socket Management}!xlio\_socket\_get\_pd@{xlio\_socket\_get\_pd}}
+\index{xlio\_socket\_get\_pd@{xlio\_socket\_get\_pd}!Socket Management@{Socket Management}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_get\_pd()}{xlio\_socket\_get\_pd()}}
+{\footnotesize\ttfamily struct ibv\+\_\+pd \texorpdfstring{$\ast$}{*} xlio\+\_\+socket\+\_\+get\+\_\+pd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}]{sock }\end{DoxyParamCaption})}
+
+
+
+Get Infini\+Band protection domain. 
+
+Returns the Infini\+Band protection domain associated with the socket. This can be used for registering memory regions for zero-\/copy operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to ibv\+\_\+pd structure, or NULL on error
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Socket must be connected or in progress of connecting. 
+\end{DoxyNote}
+\Hypertarget{group__xlio__socket_ga878881f08a6946596aff947f5e23637a}\label{group__xlio__socket_ga878881f08a6946596aff947f5e23637a} 
+\index{Socket Management@{Socket Management}!xlio\_socket\_getpeername@{xlio\_socket\_getpeername}}
+\index{xlio\_socket\_getpeername@{xlio\_socket\_getpeername}!Socket Management@{Socket Management}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_getpeername()}{xlio\_socket\_getpeername()}}
+{\footnotesize\ttfamily int xlio\+\_\+socket\+\_\+getpeername (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}]{sock,  }\item[{struct sockaddr \texorpdfstring{$\ast$}{*}}]{addr,  }\item[{socklen\+\_\+t \texorpdfstring{$\ast$}{*}}]{addrlen }\end{DoxyParamCaption})}
+
+
+
+Get peer name. 
+
+Retrieves the remote address of the socket, similar to getpeername().
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket to query \\
+\hline
+{\em addr} & Buffer to store the address \\
+\hline
+{\em addrlen} & Pointer to the address length \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error (errno is set)
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+getpeername(2) 
+\end{DoxySeeAlso}
+\Hypertarget{group__xlio__socket_ga6481eaa78bb5ffc76f5612608eebd9de}\label{group__xlio__socket_ga6481eaa78bb5ffc76f5612608eebd9de} 
+\index{Socket Management@{Socket Management}!xlio\_socket\_getsockname@{xlio\_socket\_getsockname}}
+\index{xlio\_socket\_getsockname@{xlio\_socket\_getsockname}!Socket Management@{Socket Management}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_getsockname()}{xlio\_socket\_getsockname()}}
+{\footnotesize\ttfamily int xlio\+\_\+socket\+\_\+getsockname (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}]{sock,  }\item[{struct sockaddr \texorpdfstring{$\ast$}{*}}]{addr,  }\item[{socklen\+\_\+t \texorpdfstring{$\ast$}{*}}]{addrlen }\end{DoxyParamCaption})}
+
+
+
+Get socket name. 
+
+Retrieves the local address of the socket, similar to getsockname().
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket to query \\
+\hline
+{\em addr} & Buffer to store the address \\
+\hline
+{\em addrlen} & Pointer to the address length \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error (errno is set)
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+getsockname(2) 
+\end{DoxySeeAlso}
+\Hypertarget{group__xlio__socket_ga51a705d503e888eb6103af8e32ea8e79}\label{group__xlio__socket_ga51a705d503e888eb6103af8e32ea8e79} 
+\index{Socket Management@{Socket Management}!xlio\_socket\_listen@{xlio\_socket\_listen}}
+\index{xlio\_socket\_listen@{xlio\_socket\_listen}!Socket Management@{Socket Management}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_listen()}{xlio\_socket\_listen()}}
+{\footnotesize\ttfamily int xlio\+\_\+socket\+\_\+listen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}]{sock }\end{DoxyParamCaption})}
+
+
+
+Listen for incoming connections. 
+
+Configures the socket to listen for incoming connections. Requires that the polling group has a socket\+\_\+accept\+\_\+cb callback registered.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket to configure for listening \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error (errno is set)
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Error Codes\+:}
+
+\begin{DoxyItemize}
+\item ENOTCONN\+: No accept callback registered in the polling group
+\item EINVAL\+: Socket is already connected
+\item EADDRINUSE\+: Another socket is already listening on the same port
+\item ENODEV\+: Trying to listen on a non-\/\+NVIDIA NIC or an internal error preventing the socket from being offloaded
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyNote}{Note}
+The socket must be bound before calling this function.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+listen(2) 
+\end{DoxySeeAlso}
+\Hypertarget{group__xlio__socket_gaa72a034bf58bd1090b0a2414a06a63c9}\label{group__xlio__socket_gaa72a034bf58bd1090b0a2414a06a63c9} 
+\index{Socket Management@{Socket Management}!xlio\_socket\_setsockopt@{xlio\_socket\_setsockopt}}
+\index{xlio\_socket\_setsockopt@{xlio\_socket\_setsockopt}!Socket Management@{Socket Management}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_setsockopt()}{xlio\_socket\_setsockopt()}}
+{\footnotesize\ttfamily int xlio\+\_\+socket\+\_\+setsockopt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}]{sock,  }\item[{int}]{level,  }\item[{int}]{optname,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{optval,  }\item[{socklen\+\_\+t}]{optlen }\end{DoxyParamCaption})}
+
+
+
+Set socket options. 
+
+Sets socket options, similar to the standard setsockopt() function. Supports standard socket options as well as XLIO-\/specific options.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket to configure \\
+\hline
+{\em level} & The protocol level (SOL\+\_\+\+SOCKET, IPPROTO\+\_\+\+TCP, etc.) \\
+\hline
+{\em optname} & The option name \\
+\hline
+{\em optval} & Pointer to the option value \\
+\hline
+{\em optlen} & Length of the option value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error (errno is set)
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+setsockopt(2) 
+\end{DoxySeeAlso}
+\Hypertarget{group__xlio__socket_ga32ad9cd12d473dfe3a34147847856859}\label{group__xlio__socket_ga32ad9cd12d473dfe3a34147847856859} 
+\index{Socket Management@{Socket Management}!xlio\_socket\_update@{xlio\_socket\_update}}
+\index{xlio\_socket\_update@{xlio\_socket\_update}!Socket Management@{Socket Management}}
+\doxysubsubsubsection{\texorpdfstring{xlio\_socket\_update()}{xlio\_socket\_update()}}
+{\footnotesize\ttfamily int xlio\+\_\+socket\+\_\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__xlio__socket_ga38bd8a56da936ea6bbced26cd3009588}{xlio\+\_\+socket\+\_\+t}}}]{sock,  }\item[{unsigned}]{flags,  }\item[{uintptr\+\_\+t}]{userdata\+\_\+sq }\end{DoxyParamCaption})}
+
+
+
+Update socket attributes. 
+
+Updates the flags and user data associated with a socket. This allows changing socket behavior and context without recreating the socket.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & The socket to update \\
+\hline
+{\em flags} & New flags for the socket \\
+\hline
+{\em userdata\+\_\+sq} & New user data for the socket \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error 
+\end{DoxyReturn}

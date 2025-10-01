@@ -1,0 +1,111 @@
+\doxysection{XLIO Ultra API}
+\hypertarget{group__xlio__ultra__api}{}\label{group__xlio__ultra__api}\index{XLIO Ultra API@{XLIO Ultra API}}
+
+
+High-\/performance zero-\/copy networking interface.  
+
+
+\doxysubsubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__xlio__init}{Initialization and Cleanup}}
+\begin{DoxyCompactList}\small\item\em Functions for initializing and cleaning up the XLIO Ultra API. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__xlio__poll__group}{Polling Groups}}
+\begin{DoxyCompactList}\small\item\em Functions for managing polling groups and event handling. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__xlio__socket}{Socket Management}}
+\begin{DoxyCompactList}\small\item\em Functions for creating and managing XLIO sockets. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__xlio__tx}{Transmit Operations}}
+\begin{DoxyCompactList}\small\item\em High-\/performance data transmission functions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__xlio__rx}{Receive Operations}}
+\begin{DoxyCompactList}\small\item\em Zero-\/copy receive buffer management. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__xlio__callbacks}{Event Callbacks}}
+\begin{DoxyCompactList}\small\item\em Callback functions for handling socket events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+High-\/performance zero-\/copy networking interface. 
+
+The XLIO Ultra API is a performance-\/oriented, event-\/based networking interface designed for applications requiring maximum throughput and minimal latency. It provides zero-\/copy capabilities and efficient memory management for high-\/performance networking.\hypertarget{group__xlio__ultra__api_features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{group__xlio__ultra__api_features}
+
+\begin{DoxyItemize}
+\item Native zero-\/copy TX and RX operations
+\item Immediate callback-\/based event notification without accumulation
+\item Optimized data path with fewer corner cases and non-\/performance-\/oriented features
+\begin{DoxyItemize}
+\item No blocking mode
+\item No partial writes
+\end{DoxyItemize}
+\item Simplified application development\+:
+\begin{DoxyItemize}
+\item Fewer error conditions and corner cases to handle
+\item Flexible control of TX data aggregation
+\item High-\/level TX operation completion
+\end{DoxyItemize}
+\item Concurrency and scalability\+:
+\begin{DoxyItemize}
+\item No global namespace -\/ sockets grouped by polling groups
+\item Clear concurrency boundaries and scalability model
+\item Each group can be handled independently by different threads
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{group__xlio__ultra__api_architecture}{}\doxysubsection{\texorpdfstring{Architecture Overview}{Architecture Overview}}\label{group__xlio__ultra__api_architecture}
+The API is built around three main concepts\+:
+\begin{DoxyEnumerate}
+\item {\bfseries{Polling Groups}}\+: Event management and callback registration
+\item {\bfseries{Sockets}}\+: TCP socket abstraction with zero-\/copy capabilities
+\item {\bfseries{Buffers}}\+: Memory management for zero-\/copy operations
+\end{DoxyEnumerate}\hypertarget{group__xlio__ultra__api_workflow}{}\doxysubsection{\texorpdfstring{Typical Workflow}{Typical Workflow}}\label{group__xlio__ultra__api_workflow}
+
+\begin{DoxyEnumerate}
+\item Initialize XLIO with \doxylink{group__xlio__init_gaaad01a42c1616e08122aedc82680eb00}{xlio\+\_\+init\+\_\+ex()}
+\item Create polling group with \doxylink{group__xlio__poll__group_gaa3782bddb1e0fadf5bade05de3daf305}{xlio\+\_\+poll\+\_\+group\+\_\+create()}
+\item Create socket with \doxylink{group__xlio__socket_ga150ccad0ae9c3c369d32f07e6a495a29}{xlio\+\_\+socket\+\_\+create()}
+\item Configure socket (bind, connect, listen)
+\item Poll for events with \doxylink{group__xlio__poll__group_gafc07446ac8afb352c6b425b2e5cb4efc}{xlio\+\_\+poll\+\_\+group\+\_\+poll()}
+\item Handle events via registered callbacks
+\item Send/receive data using zero-\/copy operations
+\item Clean up resources
+\end{DoxyEnumerate}\hypertarget{group__xlio__ultra__api_concurrency}{}\doxysubsection{\texorpdfstring{Concurrency and Thread Safety}{Concurrency and Thread Safety}}\label{group__xlio__ultra__api_concurrency}
+The XLIO Ultra API is designed for high-\/performance applications with specific concurrency patterns and thread safety requirements.\hypertarget{group__xlio__ultra__api_thread_safety}{}\doxysubsubsection{\texorpdfstring{Thread Safety Model}{Thread Safety Model}}\label{group__xlio__ultra__api_thread_safety}
+
+\begin{DoxyItemize}
+\item {\bfseries{The API is NOT thread-\/safe by default}}
+\item Applications are responsible for proper serialization when accessing XLIO objects from multiple threads
+\item No internal locking is provided to maximize performance
+\end{DoxyItemize}\hypertarget{group__xlio__ultra__api_polling_group_concurrency}{}\doxysubsubsection{\texorpdfstring{Polling Group Concurrency}{Polling Group Concurrency}}\label{group__xlio__ultra__api_polling_group_concurrency}
+Polling groups are the primary mechanism for achieving concurrency\+:
+\begin{DoxyItemize}
+\item {\bfseries{Multiple polling groups can be polled concurrently}} from different threads
+\item {\bfseries{Polling groups do not share resources}} with each other
+\item {\bfseries{Sockets from different groups can be handled concurrently}} without serialization
+\end{DoxyItemize}\hypertarget{group__xlio__ultra__api_serialization_requirements}{}\doxysubsubsection{\texorpdfstring{Serialization Requirements}{Serialization Requirements}}\label{group__xlio__ultra__api_serialization_requirements}
+
+\begin{DoxyItemize}
+\item {\bfseries{Within a polling group}}\+: All operations require serialization
+\begin{DoxyItemize}
+\item Only one thread should call \doxylink{group__xlio__poll__group_gafc07446ac8afb352c6b425b2e5cb4efc}{xlio\+\_\+poll\+\_\+group\+\_\+poll()} per group at a time
+\item Socket operations within the same group must be serialized
+\item Serialized polling group and socket calls can be executed by different threads
+\end{DoxyItemize}
+\item {\bfseries{Across polling groups}}\+: No serialization required
+\begin{DoxyItemize}
+\item Different threads can operate on different groups simultaneously
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{group__xlio__ultra__api_thread_safety_exceptions}{}\doxysubsubsection{\texorpdfstring{Thread Safety Exceptions}{Thread Safety Exceptions}}\label{group__xlio__ultra__api_thread_safety_exceptions}
+Some operations have specific thread safety characteristics\+:
+\begin{DoxyItemize}
+\item {\bfseries{Initialization}}\+: \doxylink{group__xlio__init_gaaad01a42c1616e08122aedc82680eb00}{xlio\+\_\+init\+\_\+ex()} and \doxylink{group__xlio__init_ga036cf208f96e32c2fce415e8e7af1094}{xlio\+\_\+exit()} are not thread-\/safe
+\item A group created with the flag XLIO\+\_\+\+GROUP\+\_\+\+FLAG\+\_\+\+SAFE can execute a polling and socket TX operations concurrently
+\end{DoxyItemize}\hypertarget{group__xlio__ultra__api_limitations}{}\doxysubsection{\texorpdfstring{Current Limitations}{Current Limitations}}\label{group__xlio__ultra__api_limitations}
+
+\begin{DoxyItemize}
+\item TCP sockets only (no UDP support)
+\item No crypto offload support
+\item No bonding support
+\item Only busy polling is supported
+\item fork() is supported only without created polling groups 
+\end{DoxyItemize}\input{group__xlio__init}
+\input{group__xlio__poll__group}
+\input{group__xlio__socket}
+\input{group__xlio__tx}
+\input{group__xlio__rx}
+\input{group__xlio__callbacks}
